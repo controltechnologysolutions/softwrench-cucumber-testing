@@ -3,11 +3,14 @@ package net.softwrench;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.springframework.stereotype.Service;
 
 /**
  * <p>
@@ -34,7 +37,6 @@ public class SharedDriver extends EventFiringWebDriver {
     private static final Thread CLOSE_THREAD = new Thread() {
         @Override
         public void run() {
-           // REAL_DRIVER.close();
             REAL_DRIVER.quit();
         }
     };

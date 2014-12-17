@@ -10,9 +10,9 @@ import net.softwrench.util.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 
-import cucumber.api.PendingException;
-import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -21,11 +21,8 @@ import cucumber.api.java.en.When;
 
 public class LoginComplete {
 	
-	private final WebDriver driver;
-	
-	public LoginComplete(SharedDriver driver) {
-		this.driver = driver;
-	}
+	@Autowired
+	private WebDriver driver;
 	
 	@Before
 	public void beforeScenario() {
