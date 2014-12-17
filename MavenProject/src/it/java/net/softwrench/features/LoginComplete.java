@@ -1,4 +1,4 @@
-package net.softwrench;
+package net.softwrench.features;
 
 import static org.junit.Assert.assertEquals;
 
