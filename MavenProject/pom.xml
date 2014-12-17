@@ -149,6 +149,10 @@
 						<configuration>
 							<stopKey>Youllneverwalkalone</stopKey>
 							<stopPort>9995</stopPort>
+							 <httpConnector>
+         						 <!--host>localhost</host-->
+          						 <port>9999</port>
+     						 </httpConnector>
 						</configuration>
 						<executions>
 							<execution>
