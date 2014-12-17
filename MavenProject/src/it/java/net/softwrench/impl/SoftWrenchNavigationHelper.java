@@ -38,6 +38,11 @@ public class SoftWrenchNavigationHelper implements NavigationHelper {
 	
 	@Override
 	public void goToSRGrid(WebDriver driver) {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException ex) {
+			Thread.currentThread().interrupt();
+		}
 		WebElement gridButton = driver.findElement(By.className(Constants.SR_ICON));
 		gridButton.click();
 		WebElement gridLink = driver.findElement(By.id("ApplicationMenuItemDefinition_SR"));
