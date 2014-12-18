@@ -9,6 +9,8 @@ import net.softwrench.util.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -29,29 +31,16 @@ public class SoftWrenchNavigationHelper implements NavigationHelper {
 		WebElement form = driver.findElement(By.tagName("form"));
 		form.submit();
 		
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException ex) {
-			Thread.currentThread().interrupt();
-		}
 	}
 	
 	@Override
 	public void goToSRGrid(WebDriver driver) {
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException ex) {
-			Thread.currentThread().interrupt();
-		}
+		WebDriverWait wait = new WebDriverWait(driver, 5); // wait for a maximum of 5 seconds
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.className(Constants.SR_ICON)));
+		
 		WebElement gridButton = driver.findElement(By.className(Constants.SR_ICON));
 		gridButton.click();
 		WebElement gridLink = driver.findElement(By.id("ApplicationMenuItemDefinition_SR"));
 		gridLink.click();
-		
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException ex) {
-			Thread.currentThread().interrupt();
-		}
 	}
 }
