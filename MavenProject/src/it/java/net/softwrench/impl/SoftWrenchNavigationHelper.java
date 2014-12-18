@@ -36,7 +36,8 @@ public class SoftWrenchNavigationHelper implements NavigationHelper {
 	@Override
 	public void goToSRGrid(WebDriver driver) {
 		System.err.println("I am at: " + driver.getCurrentUrl());
-		driver.findElements(By.className(Constants.SR_ICON));
+		List<WebElement> elements = driver.findElements(By.className(Constants.SR_ICON));
+		System.out.println("elements: " + elements);
 		WebDriverWait wait = new WebDriverWait(driver, 5); // wait for a maximum of 5 seconds
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className(Constants.SR_ICON)));
 		
