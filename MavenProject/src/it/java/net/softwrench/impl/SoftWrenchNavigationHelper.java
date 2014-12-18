@@ -41,9 +41,9 @@ public class SoftWrenchNavigationHelper implements NavigationHelper {
 		WebElement gridButton = driver.findElement(By.className(Constants.SR_ICON));
 		gridButton.click();
 		
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("ApplicationMenuItemDefinition_SR")));
-		
-		WebElement gridLink = driver.findElement(By.id("ApplicationMenuItemDefinition_SR"));
-		gridLink.click();
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("ApplicationMenuItemDefinition_SR")));
+//		
+//		WebElement gridLink = driver.findElement(By.id("ApplicationMenuItemDefinition_SR"));
+//		gridLink.click();
 	}
 }
