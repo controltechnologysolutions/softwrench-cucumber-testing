@@ -35,9 +35,10 @@ public class SoftWrenchNavigationHelper implements NavigationHelper {
 	
 	@Override
 	public void goToSRGrid(WebDriver driver) {
+		System.err.println("I am at: " + driver.getCurrentUrl());
 		WebDriverWait wait = new WebDriverWait(driver, 5); // wait for a maximum of 5 seconds
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className(Constants.SR_ICON)));
-		System.err.println("I am at: " + driver.getCurrentUrl());
+		
 		WebElement gridButton = driver.findElement(By.className(Constants.SR_ICON));
 		gridButton.click();
 		
