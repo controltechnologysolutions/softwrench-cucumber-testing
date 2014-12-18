@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 
 import net.softwrench.NavigationHelper;
+import net.softwrench.util.Configuration;
 import net.softwrench.util.Constants;
 
 import org.openqa.selenium.By;
@@ -27,8 +28,43 @@ public class ShowSRDetailsStepDef {
 
 	@Given("^I am on the service request grid$")
 	public void i_am_on_the_service_request_grid() throws Throwable {
-		navHelper.makeSureImLoggedIn("swadmin", "sw@dm1n", driver);
-		navHelper.goToSRGrid(driver);
+//		navHelper.makeSureImLoggedIn("swadmin", "sw@dm1n", driver);
+//		navHelper.goToSRGrid(driver);
+		
+		driver.get(Configuration.SOFTWRENCH_URL);
+		List<WebElement> logout = driver.findElements(By.className(Constants.LOGOUT_ICON));
+		if (logout.size() > 0)
+			return;
+		
+		WebElement element = driver.findElement(By.name("userName"));
+		element.sendKeys("swadmin");
+		WebElement element2 = driver.findElement(By.name("password"));
+		element2.sendKeys("sw@dm1n");
+
+		WebElement form = driver.findElement(By.tagName("form"));
+		form.submit();
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException ex) {
+			Thread.currentThread().interrupt();
+		}
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException ex) {
+			Thread.currentThread().interrupt();
+		}
+		WebElement gridButton = driver.findElement(By.className(Constants.SR_ICON));
+		gridButton.click();
+		WebElement gridLink = driver.findElement(By.id("ApplicationMenuItemDefinition_SR"));
+		gridLink.click();
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException ex) {
+			Thread.currentThread().interrupt();
+		}
 	}
 
 	@When("^I click on row (\\d+) in the grid$")
