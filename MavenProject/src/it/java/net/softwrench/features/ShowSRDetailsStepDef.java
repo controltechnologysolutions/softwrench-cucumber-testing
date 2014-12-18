@@ -31,7 +31,7 @@ public class ShowSRDetailsStepDef {
 	@Given("^I am on the service request grid$")
 	public void i_am_on_the_service_request_grid() throws Throwable {
 		navHelper.makeSureImLoggedIn("swadmin", "sw@dm1n", driver);
-		//navHelper.goToSRGrid(driver);
+		navHelper.goToSRGrid(driver);
 	}
 
 	@When("^I click on row (\\d+) in the grid$")
