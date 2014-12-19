@@ -36,16 +36,15 @@ public class ShowSRDetailsStepDef {
 
 	@When("^I click on row (\\d+) in the grid$")
 	public void i_click_on_a_row_in_the_grid(int rownumber) throws Throwable {
-		throw new PendingException();
 		
-//		WebDriverWait wait = new WebDriverWait(driver, 5); // wait for a maximum of 5 seconds
-//		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//tbody/tr/td[3]")));
-//		
-//		List<WebElement> cells = driver.findElements(By.xpath("//tbody/tr[" + rownumber + "]/td[3]"));
-//		if (cells.size() > 0)
-//			cells.get(0).click();
-//		else
-//			throw new PendingException("No data row " + rownumber + ".");
+		WebDriverWait wait = new WebDriverWait(driver, 5); // wait for a maximum of 5 seconds
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//tbody/tr/td[1]")));
+		
+		List<WebElement> cells = driver.findElements(By.xpath("//tbody/tr[" + rownumber + "]/td[3]"));
+		if (cells.size() > 0)
+			cells.get(0).click();
+		else
+			throw new PendingException("No data row " + rownumber + ".");
 	}
 
 	@Then("^I should see the details for the service SR I clicked on$")
