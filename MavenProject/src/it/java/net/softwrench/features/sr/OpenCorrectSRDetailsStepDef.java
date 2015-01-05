@@ -1,16 +1,16 @@
 package net.softwrench.features.sr;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import net.softwrench.SoftWrenchRemoteDriver;
 import net.softwrench.features.sr.contexts.SRDetailStepContext;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,7 +21,7 @@ import cucumber.api.java.en.Then;
 public class OpenCorrectSRDetailsStepDef {
 	
 	@Autowired
-	private WebDriver driver;
+	private SoftWrenchRemoteDriver driver;
 	
 	@Autowired
 	private SRDetailStepContext context;

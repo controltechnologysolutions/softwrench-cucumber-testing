@@ -3,6 +3,7 @@ package net.softwrench.features.sr.general;
 import java.util.List;
 
 import net.softwrench.NavigationHelper;
+import net.softwrench.SoftWrenchRemoteDriver;
 import net.softwrench.features.sr.contexts.SRDetailStepContext;
 
 import org.openqa.selenium.By;
@@ -19,7 +20,7 @@ import cucumber.api.java.en.When;
 public class SRGeneralSteps {
 	
 	@Autowired
-	private WebDriver driver;
+	private SoftWrenchRemoteDriver driver;
 	
 	@Autowired
 	private NavigationHelper navHelper;

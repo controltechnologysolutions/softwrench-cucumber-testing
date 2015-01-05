@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
+import net.softwrench.SoftWrenchRemoteDriver;
 import net.softwrench.util.Configuration;
 import net.softwrench.util.Constants;
 
@@ -22,7 +23,7 @@ import cucumber.api.java.en.When;
 public class LoginComplete {
 	
 	@Autowired
-	private WebDriver driver;
+	private SoftWrenchRemoteDriver driver;
 	
 	@Before
 	public void beforeScenario() {

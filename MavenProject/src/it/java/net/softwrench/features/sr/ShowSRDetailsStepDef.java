@@ -1,6 +1,7 @@
 package net.softwrench.features.sr;
 
 import static org.junit.Assert.assertTrue;
+import net.softwrench.SoftWrenchRemoteDriver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +15,7 @@ import cucumber.api.java.en.Then;
 public class ShowSRDetailsStepDef {
 
 	@Autowired
-	private WebDriver driver;
+	private SoftWrenchRemoteDriver driver;
 	
 	@Then("^I should see the details for the service SR I clicked on$")
 	public void i_should_see_the_details_for_the_service_SR_I_clicked_on()
