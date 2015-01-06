@@ -161,6 +161,7 @@
 						<configuration>
 							<systemPropertyVariables>
 								<cucumber.options>${cucumber.options}</cucumber.options>
+								<test.instance>${test.instance}</test.instance>
 							</systemPropertyVariables>
 						</configuration>
 					</plugin>
@@ -224,4 +225,7 @@
 
 		</profile>
 	</profiles>
+	<properties>
+		<test.instance>http://10.50.100.125/softwrench</test.instance>
+	</properties>
 </project>

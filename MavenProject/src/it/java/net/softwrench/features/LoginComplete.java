@@ -9,10 +9,9 @@ import net.softwrench.util.Configuration;
 import net.softwrench.util.Constants;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.core.env.Environment;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -25,9 +24,16 @@ public class LoginComplete {
 	@Autowired
 	private SoftWrenchRemoteDriver driver;
 	
+	@Autowired
+	private Environment env;	
+	
+	private String testEnvironment;
+	
 	@Before
 	public void beforeScenario() {
-		driver.get(Configuration.SOFTWRENCH_URL);
+		testEnvironment = env.getProperty("test.instance");
+		System.out.println("Loggin in to " + testEnvironment);
+		driver.get(testEnvironment);
 	}
 
 	@Given("^I filled '(\\w+)' and '(\\S+)'$")
@@ -47,7 +53,7 @@ public class LoginComplete {
 	@Then("^I should see '(\\w+)' message$")
 	public void i_should_see_success_or_failure_message(String result) throws Throwable {
 		List<WebElement> warnings = driver.findElements(By.className("text-danger"));
-		boolean correctPage = driver.getCurrentUrl().startsWith(Configuration.SOFTWRENCH_URL + Configuration.SIGNIN_PAGE);
+		boolean correctPage = driver.getCurrentUrl().startsWith(testEnvironment + Configuration.SIGNIN_PAGE);
 	    
 		String successOrFailure = correctPage && warnings.size() > 0 ? Constants.FAILURE : null;
 			   
@@ -59,7 +65,7 @@ public class LoginComplete {
 	
 	@After
 	public void afterScenario() {
-		driver.get(Configuration.SOFTWRENCH_URL + Constants.LOGOUT_URL);
+		driver.get(testEnvironment + Constants.LOGOUT_URL);
 	}
 
 }

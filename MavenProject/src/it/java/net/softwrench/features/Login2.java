@@ -1,7 +1,5 @@
 package net.softwrench.features;
 
-import org.springframework.test.context.ContextConfiguration;
-
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;

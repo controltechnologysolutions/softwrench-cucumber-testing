@@ -3,7 +3,6 @@ package net.softwrench.impl;
 import java.util.List;
 
 import net.softwrench.NavigationHelper;
-import net.softwrench.util.Configuration;
 import net.softwrench.util.Constants;
 
 import org.openqa.selenium.By;
@@ -12,14 +11,29 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
+
+import cucumber.api.java.Before;
 
 @Service
 public class SoftWrenchNavigationHelper implements NavigationHelper {
 	
+	@Autowired
+	private Environment env;	
+	
+	private String testEnvironment;
+	
+	@Before
+	public void beforeScenario() {
+		testEnvironment = env.getProperty("test.instance");
+	}
+	
 	@Override
 	public void makeSureImLoggedIn(String username, String password, WebDriver driver) {
-		driver.get(Configuration.SOFTWRENCH_URL);
+		System.out.println("Loggin in to " + testEnvironment);
+		driver.get(testEnvironment);
 		List<WebElement> logout = driver.findElements(By.className(Constants.LOGOUT_ICON));
 		if (logout.size() > 0)
 			return;
