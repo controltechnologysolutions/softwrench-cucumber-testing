@@ -12,12 +12,15 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import cucumber.api.java.Before;
 
 @Service
+@Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class SoftWrenchNavigationHelper implements NavigationHelper {
 	
 	@Autowired
@@ -25,13 +28,14 @@ public class SoftWrenchNavigationHelper implements NavigationHelper {
 	
 	private String testEnvironment;
 	
-	@Before
-	public void beforeScenario() {
-		testEnvironment = env.getProperty("test.instance");
-	}
+//	@Before
+//	public void beforeScenario() {
+//		testEnvironment = env.getProperty("test.instance");
+//	}
 	
 	@Override
 	public void makeSureImLoggedIn(String username, String password, WebDriver driver) {
+		testEnvironment = env.getProperty("test.instance");
 		System.out.println("Loggin in to " + testEnvironment);
 		driver.get(testEnvironment);
 		List<WebElement> logout = driver.findElements(By.className(Constants.LOGOUT_ICON));

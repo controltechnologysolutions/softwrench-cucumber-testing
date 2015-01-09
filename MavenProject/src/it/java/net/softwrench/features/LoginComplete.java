@@ -66,6 +66,7 @@ public class LoginComplete {
 	@After
 	public void afterScenario() {
 		driver.get(testEnvironment + Constants.LOGOUT_URL);
+		
 	}
 
 }
