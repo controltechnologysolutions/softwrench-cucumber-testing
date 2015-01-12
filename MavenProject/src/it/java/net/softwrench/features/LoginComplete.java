@@ -32,7 +32,7 @@ public class LoginComplete {
 	@Before
 	public void beforeScenario() {
 		testEnvironment = env.getProperty("test.instance");
-		System.out.println("Loggin in to " + testEnvironment);
+		System.out.println("Go to test environment: " + testEnvironment);
 		driver.get(testEnvironment);
 	}
 
