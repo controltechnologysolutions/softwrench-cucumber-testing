@@ -9,4 +9,6 @@ public interface NavigationHelper {
 	public abstract void makeSureImLoggedIn(String username, String password,
 			WebDriver driver);
 
+	public void makeSureImLoggedIn(WebDriver driver);
+
 }

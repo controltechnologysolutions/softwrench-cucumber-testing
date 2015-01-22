@@ -2,6 +2,8 @@ package net.softwrench.impl;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import net.softwrench.NavigationHelper;
 import net.softwrench.util.Constants;
 
@@ -16,24 +18,50 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import cucumber.api.java.Before;
 
+@Component
+@Scope("cucumber-glue")
 public class SoftWrenchNavigationHelper implements NavigationHelper {
 	
 	@Autowired
 	private Environment env;	
 	
 	private String testEnvironment;
+	private String username;
+	private String password;
+	
 	 
-	@Before
+	@PostConstruct
 	public void beforeScenario() {
 		testEnvironment = env.getProperty("test.instance");
+		username = env.getProperty("test.user.username");
+		password = env.getProperty("test.user.password");
 	}
 	
 	@Override
-	public void makeSureImLoggedIn(String username, String password, WebDriver driver) {
+	public void makeSureImLoggedIn(String user, String pw, WebDriver driver) {
+		System.out.println("Logging in to " + testEnvironment + " as " + user);
+		driver.get(testEnvironment);
+		List<WebElement> logout = driver.findElements(By.className(Constants.LOGOUT_ICON));
+		if (logout.size() > 0)
+			return;
+		
+		WebElement element = driver.findElement(By.name("userName"));
+		element.sendKeys(user);
+		WebElement element2 = driver.findElement(By.name("password"));
+		element2.sendKeys(pw);
+
+		WebElement form = driver.findElement(By.tagName("form"));
+		form.submit();
+		
+	}
+	
+	@Override
+	public void makeSureImLoggedIn(WebDriver driver) {
 		System.out.println("Logging in to " + testEnvironment);
 		driver.get(testEnvironment);
 		List<WebElement> logout = driver.findElements(By.className(Constants.LOGOUT_ICON));
