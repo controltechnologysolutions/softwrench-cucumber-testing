@@ -43,12 +43,12 @@ public class CreateSRStepDef {
 	@Before
 	public void init() {
 		driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
-		navHelper.makeSureImLoggedIn(driver);
 		byAngular = new ByAngular(driver);
 	}
 
 	@Given("^I click on the new SR button$")
 	public void i_click_on_the_new_SR_button() throws Throwable {
+		navHelper.makeSureImLoggedIn(driver);
 		((RemoteWebDriver)driver).executeScript("var button = document.getElementById('ApplicationMenuItemDefinition_NSR'); button.click();");
 		
 	}

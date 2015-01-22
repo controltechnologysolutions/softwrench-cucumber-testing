@@ -10,6 +10,9 @@ import net.softwrench.util.Constants;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 
@@ -38,6 +41,9 @@ public class LoginComplete {
 
 	@Given("^I filled '(\\w+)' and '(\\S+)'$")
 	public void i_filled_username_and_password(String username, String password) throws Throwable {
+		WebDriverWait wait = new WebDriverWait(driver, 10); // wait for a maximum of 5 seconds
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.name("userName")));
+		
 		WebElement element = driver.findElement(By.name("userName"));
 		element.sendKeys(username);
 		WebElement element2 = driver.findElement(By.name("password"));
@@ -65,6 +71,7 @@ public class LoginComplete {
 	
 	@After
 	public void afterScenario() {
+		System.out.println("Logging out.");
 		driver.get(testEnvironment + Constants.LOGOUT_URL);
 	}
 
