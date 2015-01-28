@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.softwrench.SoftWrenchRemoteDriver;
 import net.softwrench.features.sr.contexts.SRDetailStepContext;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import cucumber.api.java.en.Then;
 public class OpenCorrectSRDetailsStepDef {
 	
 	@Autowired
-	private SoftWrenchRemoteDriver driver;
+	private RemoteWebDriver driver;
 	
 	@Autowired
 	private SRDetailStepContext context;

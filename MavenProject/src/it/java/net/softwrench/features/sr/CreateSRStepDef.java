@@ -33,7 +33,7 @@ import cucumber.api.java.en.When;
 public class CreateSRStepDef {
 	
 	@Autowired
-	private SoftWrenchRemoteDriver driver;
+	private RemoteWebDriver driver;
 	
 	@Autowired
 	private NavigationHelper navHelper;
