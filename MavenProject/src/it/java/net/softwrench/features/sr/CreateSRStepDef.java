@@ -13,6 +13,7 @@ import net.softwrench.SoftWrenchRemoteDriver;
 import net.softwrench.util.Constants;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,7 +24,7 @@ import com.paulhammant.ngwebdriver.AngularModelAccessor;
 import com.paulhammant.ngwebdriver.ByAngular;
 import com.paulhammant.ngwebdriver.WaitForAngularRequestsToFinish;
 
-import cucumber.api.java.After;
+import cucumber.api.Scenario;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -34,16 +35,17 @@ public class CreateSRStepDef {
 	@Autowired
 	private SoftWrenchRemoteDriver driver;
 	
-	
 	@Autowired
 	private NavigationHelper navHelper;
 	
 	private ByAngular byAngular;
+	private Scenario scenario;
 	
 	@Before
-	public void init() {
+	public void init(Scenario scenario) {
 		driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
 		byAngular = new ByAngular(driver);
+		this.scenario = scenario;
 	}
 
 	@Given("^I click on the new SR button$")
@@ -72,15 +74,25 @@ public class CreateSRStepDef {
 		
 		AngularModelAccessor ngModel = new AngularModelAccessor(driver);
 		for (WebElement elem : fieldRepeat) {
-			WebElement input = elem.findElement(By.tagName("input"));
-			try {
-				String attribute = ngModel.retrieveAsString(input, "fieldMetadata.attribute");
-				if (fieldValues.containsKey(attribute)) {
-					input.sendKeys(fieldValues.get(attribute) + " " + new Date());
+			
+			WebElement input = null;
+			if (elem.findElements(By.tagName("input")).size() > 0)
+				input = elem.findElement(By.tagName("input"));
+			
+			if (input.getAttribute("ng-model") != null && input.getAttribute("ng-model").equals("datamap[fieldMetadata.attribute]")) {			
+				try {
+					String attribute = ngModel.retrieveAsString(input, "fieldMetadata.attribute");
+					
+					if (fieldValues.containsKey(attribute)) {
+						// in case we're already at the input element
+						input.sendKeys(fieldValues.get(attribute) + " " + new Date());
+					}
+					
+				} catch(Exception ex) {
+					// in some cases the variable might be missing
+					ex.printStackTrace();
+					assertTrue(false);
 				}
-			} catch(Exception ex) {
-				// in some cases the variable might be missing
-				ex.printStackTrace();
 			}
 			
 		}
@@ -93,13 +105,18 @@ public class CreateSRStepDef {
 	@Then("^I should see a '(\\w+)' message$")
 	public void i_should_see_a_message(String result) throws Throwable {
 		if (result.equals(Constants.SUCCESS)) {
-			WebElement successMsg = driver.findElement(By.xpath("//div[@ng-show='hasSuccessDetail']"));
-			WebDriverWait wait = new WebDriverWait(driver, 5); // wait for a maximum of 5 seconds
-			wait.until(ExpectedConditions.visibilityOf(successMsg));
-			
-			String classes = successMsg.getAttribute("class");
-			assertTrue("Success Message is not displayed. Classes are " + classes, !classes.contains("ng-hide"));
-			return;
+			try {
+				WebElement successMsg = driver.findElement(By.xpath("//div[@ng-show='hasSuccessDetail']"));
+				WebDriverWait wait = new WebDriverWait(driver, 5); // wait for a maximum of 5 seconds
+				wait.until(ExpectedConditions.visibilityOf(successMsg));
+				
+				String classes = successMsg.getAttribute("class");
+				assertTrue("Success Message is not displayed. Classes are " + classes, !classes.contains("ng-hide"));
+				return;
+			} catch(Exception e) {
+				byte[] screenshot = driver.getScreenshotAs(OutputType.BYTES);
+				scenario.embed(screenshot, "image/png");
+			}
 		}
 		
 		WebElement errorMsg = driver.findElement(By.xpath("//div[@ng-show='hasValidationError']"));	
