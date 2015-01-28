@@ -9,7 +9,11 @@ import net.softwrench.SoftWrenchRemoteDriver;
 import net.softwrench.features.sr.contexts.SRDetailStepContext;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.paulhammant.ngwebdriver.AngularModelAccessor;
@@ -44,24 +48,41 @@ public class RequiredFieldsStepDef {
 		List<WebElement> inputMains = driver.findElements(By.xpath("//*[@elementid='crudInputMain']"));
 		List<WebElement> fieldRepeat = inputMains.get(0).findElements(byAngular.repeater("fieldMetadata in nonTabFields(displayables)"));
 		
-		for (WebElement elem : fieldRepeat) {
+		byte[] screenshot = driver.getScreenshotAs(OutputType.BYTES);
+		scenario.embed(screenshot, "image/png");
+		
+		int reqNr = 0;
+		for (WebElement fieldset : fieldRepeat) {
 			// does field have a label
-			if (elem.findElements(By.tagName("label")).size() > 0 && elem.findElements(By.className("requiredfieldmark")).size() > 0) {
-				System.out.println("Attribute " + elem.findElement(By.tagName("label")).getText());
+			if (fieldset.findElements(By.tagName("label")).size() > 0 && fieldset.findElements(By.className("requiredfieldmark")).size() > 0) {
+				
 				// is it required
-				WebElement requiredSpan = elem.findElement(By.className("requiredfieldmark"));
+				WebElement requiredSpan = fieldset.findElement(By.className("requiredfieldmark"));
 				if (requiredSpan.isDisplayed()) {
-					WebElement inputElem = elem.findElement(By.xpath("//*[@ng-model='datamap[fieldMetadata.attribute]']"));
-					System.out.println("input elem " + inputElem.getTagName());
-					String displayedText = inputElem.getAttribute("value");
-					System.out.println("Displayed text: " + displayedText);
+					WebElement inputElem = null;
+					if (fieldset.findElements(By.xpath(".//input")).size() > 0) {
+						inputElem = fieldset.findElement(By.xpath(".//input"));
+					}
+					else if (fieldset.findElements(By.xpath(".//select")).size() > 0) {
+						inputElem = fieldset.findElement(By.xpath(".//select"));
+					}
+					else if (fieldset.findElements(By.xpath(".//textarea")).size() > 0) {
+						inputElem = fieldset.findElement(By.xpath(".//textarea"));
+					}
 					
-					assertTrue("No text is displayed.", displayedText.length() > 0);
-					return;
+					if (inputElem != null) {
+						String displayedText = inputElem.getAttribute("value");
+						System.out.println(fieldset.findElement(By.tagName("label")).getText() + " " + displayedText);
+						reqNr++;
+						assertTrue("No text is displayed.", displayedText.length() > 0);
+					}
+					else {
+						System.out.println("Can't find input element.");
+					}
 				}
 			}
 		}
 		
-		System.out.println("No required fields.");
+		System.out.println("Required Fields: " + reqNr);
 	}
 }
