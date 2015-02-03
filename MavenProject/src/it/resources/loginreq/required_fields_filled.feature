@@ -1,4 +1,4 @@
-@sr @details @inprg
+@sr @details
 Feature: Required fields are filled
   When I click on a sr record that was previously created, all required fields are filled.
  

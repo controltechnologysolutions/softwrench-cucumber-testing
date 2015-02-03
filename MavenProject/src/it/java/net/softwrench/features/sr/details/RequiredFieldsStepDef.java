@@ -3,24 +3,18 @@ package net.softwrench.features.sr.details;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-import net.softwrench.SoftWrenchRemoteDriver;
 import net.softwrench.features.sr.contexts.SRDetailStepContext;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.paulhammant.ngwebdriver.AngularModelAccessor;
 import com.paulhammant.ngwebdriver.ByAngular;
 import com.paulhammant.ngwebdriver.WaitForAngularRequestsToFinish;
 
-import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Then;
@@ -28,7 +22,7 @@ import cucumber.api.java.en.Then;
 public class RequiredFieldsStepDef {
 
 	@Autowired
-	private SoftWrenchRemoteDriver driver;
+	private RemoteWebDriver driver;
 	
 	@Autowired
 	private SRDetailStepContext context;

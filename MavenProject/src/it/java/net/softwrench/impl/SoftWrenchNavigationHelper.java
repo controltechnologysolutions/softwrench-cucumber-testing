@@ -21,6 +21,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import com.paulhammant.ngwebdriver.WaitForAngularRequestsToFinish;
+
 import cucumber.api.java.Before;
 
 @Component
@@ -46,6 +48,10 @@ public class SoftWrenchNavigationHelper implements NavigationHelper {
 	public void makeSureImLoggedIn(String user, String pw, WebDriver driver) {
 		System.out.println("Logging in to " + testEnvironment + " as " + user);
 		driver.get(testEnvironment);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 10); 
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("userName")));
+		
 		List<WebElement> logout = driver.findElements(By.className(Constants.LOGOUT_ICON));
 		if (logout.size() > 0)
 			return;
@@ -61,25 +67,12 @@ public class SoftWrenchNavigationHelper implements NavigationHelper {
 	}
 	
 	@Override
-	public void makeSureImLoggedIn(WebDriver driver) {
-		System.out.println("Logging in to " + testEnvironment);
-		driver.get(testEnvironment);
-		List<WebElement> logout = driver.findElements(By.className(Constants.LOGOUT_ICON));
-		if (logout.size() > 0)
-			return;
-		
-		WebElement element = driver.findElement(By.name("userName"));
-		element.sendKeys(username);
-		WebElement element2 = driver.findElement(By.name("password"));
-		element2.sendKeys(password);
-
-		WebElement form = driver.findElement(By.tagName("form"));
-		form.submit();
-		
+	public void makeSureImLoggedIn(RemoteWebDriver driver) {
+		makeSureImLoggedIn(username, password, driver);	
 	}
 	
 	@Override
-	public void goToSRGrid(WebDriver driver) {
+	public void goToSRGrid(RemoteWebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, 10); 
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.className(Constants.SR_ICON)));
 		

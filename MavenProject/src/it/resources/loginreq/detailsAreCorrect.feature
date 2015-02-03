@@ -1,4 +1,4 @@
-@details
+@sr @srdetails
 Feature: Clicking on a row brings up correct record
   As a user,
   I want to be able to click on a row in the service request grid,
