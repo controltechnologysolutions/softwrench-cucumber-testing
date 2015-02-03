@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 
 import cucumber.api.java.After;
 
-//@Component
-//@Scope("cucumber-glue")
+@Component
+@Scope("cucumber-glue")
 public class SoftWrenchFirefoxDriver extends FirefoxDriver{
 
 	@Autowired

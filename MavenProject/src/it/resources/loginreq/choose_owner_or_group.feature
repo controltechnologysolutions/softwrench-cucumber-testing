@@ -6,15 +6,16 @@ Feature: Owner and Owner Group popup
  
   Scenario Outline: Owner and Owner Group popup 
     Given I click on the new SR button
-    When I click on the <button> button
+    When I click on the '<button>' button
     And I filter the list in column '<column>' with '<filterstring>'
     And I click on the <nr> result
-    Then I should see that the '<fields>' fields are filled
-    And the field <otherfield> is disabled.
+    Then I should see a warning that the '<alertMsgField>'
+    And I should see that the '<fields>' fields are filled
+    And the field '<otherfield>' is disabled.
     
   Examples:
-  	| button      | column                 | filterstring | nr | fields              | otherfield |
-    | owner       | lookupObj.code         | red          | 1  | owner,description   | ownergroup      |
-    | ownergroup  | lookupObj.description  | eng          | 1  | group,gdescription  | owner      |    
+  	| button      | column                 | filterstring | nr | fields              | otherfield | alertMsgField |
+    | owner       | lookupObj.code         | red          | 1  | owner,owner-description   | ownergroup | Owner Group Field will be disabled if the Owner is selected.  |
+    | ownergroup  | lookupObj.description  | eng          | 1  | ownergroup,ownergroup-description  | owner      | Owner Field will be disabled if the Owner Group is selected.  |
  
   
