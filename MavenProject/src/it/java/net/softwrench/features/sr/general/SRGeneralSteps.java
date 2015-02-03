@@ -12,6 +12,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.paulhammant.ngwebdriver.WaitForAngularRequestsToFinish;
+
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
@@ -30,14 +32,14 @@ public class SRGeneralSteps {
 
 	@Given("^I am on the service request grid$")
 	public void i_am_on_the_service_request_grid() throws Throwable {
+		
 		navHelper.makeSureImLoggedIn(driver);
 		navHelper.goToSRGrid(driver);
 	}
 	
 	@When("^I click on row (\\d+) in the grid$")
 	public void i_click_on_a_row_in_the_grid(int rownumber) throws Throwable {
-		WebDriverWait wait = new WebDriverWait(driver, 10); // wait for a maximum of 5 seconds
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody/tr/td[3]")));
+		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
 		
 		List<WebElement> cells = driver.findElements(By.xpath("//tbody/tr[" + rownumber + "]/td[3]"));
 		if (cells.size() > 0) {

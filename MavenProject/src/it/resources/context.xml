@@ -9,4 +9,6 @@
   <context:component-scan base-package="net.softwrench"/>
   <context:annotation-config/>
   
+  <context:property-placeholder location="classpath:labels.properties" />
+  
 </beans>

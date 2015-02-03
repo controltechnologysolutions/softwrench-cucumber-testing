@@ -9,6 +9,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.paulhammant.ngwebdriver.AngularModelAccessor;
+import com.paulhammant.ngwebdriver.ByAngular;
+import com.paulhammant.ngwebdriver.WaitForAngularRequestsToFinish;
+
+import cucumber.api.Scenario;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Then;
 
 public class ShowSRDetailsStepDef {
@@ -16,13 +22,21 @@ public class ShowSRDetailsStepDef {
 	@Autowired
 	private RemoteWebDriver driver;
 	
+	private ByAngular byAngular;
+	private Scenario scenario;
+	
+	@Before
+	public void init(Scenario scenario) {
+		byAngular = new ByAngular(driver);
+		this.scenario = scenario;
+	}
+	
 	@Then("^I should see the details for the service SR I clicked on$")
 	public void i_should_see_the_details_for_the_service_SR_I_clicked_on()
 			throws Throwable {
-		WebDriverWait wait = new WebDriverWait(driver, 5); // wait for a maximum of 5 seconds
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.className("ticketid")));
+		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
 		
-		WebElement ticketId = driver.findElement(By.className("ticketid"));
+		WebElement ticketId = driver.findElement(By.id("crudbodyform"));
 
 		assertTrue(ticketId.findElement(By.tagName("h5")) != null);
 
