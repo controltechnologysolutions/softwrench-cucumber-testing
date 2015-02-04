@@ -1,4 +1,4 @@
-package net.softwrench.features.helpers.impl;
+package net.softwrench.features.helpers;
 
 import org.openqa.selenium.WebElement;
 

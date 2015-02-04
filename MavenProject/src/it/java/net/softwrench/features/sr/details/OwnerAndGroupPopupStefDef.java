@@ -7,7 +7,7 @@ import static org.junit.Assert.fail;
 import java.util.Arrays;
 import java.util.List;
 
-import net.softwrench.features.helpers.impl.AngularHelper;
+import net.softwrench.features.helpers.AngularHelper;
 import net.softwrench.features.sr.contexts.DialogSelection;
 
 import org.openqa.selenium.By;
