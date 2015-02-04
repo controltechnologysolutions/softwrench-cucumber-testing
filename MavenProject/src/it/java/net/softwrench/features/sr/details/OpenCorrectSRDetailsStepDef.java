@@ -2,6 +2,8 @@ package net.softwrench.features.sr.details;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -41,20 +43,23 @@ public class OpenCorrectSRDetailsStepDef {
 			assertTrue("No header element found.", false);
 		
 		String headerTitle = cells.get(0).getText().trim();
+		System.out.println("Header title " + headerTitle);
+		
 		Pattern pattern = Pattern.compile(headingLabel + " ([A-z0-9]+).+?Summary: (.+)");
 		
 		String srNr = "";
 		String srSummary = "";
 		
 		Matcher matcher = pattern.matcher(headerTitle);
-		if (!matcher.matches())
-			assertTrue("Couldn't find SR nr in header: " + headerTitle, false);
-		while(matcher.find()) {
+		boolean matches = matcher.matches();
+		assertTrue("Couldn't find SR nr in header: " + headerTitle, matches);
+		
+		if (matches) {
 			srNr = matcher.group(1);
 			srSummary = matcher.group(2);
-		}
 		
-		assertEquals(context.getSelectedId(), srNr);
-		assertEquals(context.getSelectedTitle(), srSummary);
+			assertEquals(context.getSelectedId(), srNr);
+			assertEquals(context.getSelectedTitle(), srSummary);
+		}
 	}
 }
