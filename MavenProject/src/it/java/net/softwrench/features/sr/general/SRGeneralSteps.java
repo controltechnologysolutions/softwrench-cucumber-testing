@@ -8,8 +8,6 @@ import net.softwrench.features.sr.contexts.SRDetailStepContext;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.paulhammant.ngwebdriver.WaitForAngularRequestsToFinish;
@@ -29,7 +27,6 @@ public class SRGeneralSteps {
 	@Autowired
 	private SRDetailStepContext context;
 	
-
 	@Given("^I am on the service request grid$")
 	public void i_am_on_the_service_request_grid() throws Throwable {
 		

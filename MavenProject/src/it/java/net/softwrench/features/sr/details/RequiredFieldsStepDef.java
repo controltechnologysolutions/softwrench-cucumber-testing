@@ -4,19 +4,16 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import net.softwrench.features.helpers.AngularHelper;
+import net.softwrench.features.helpers.FieldSetFilter;
 import net.softwrench.features.sr.contexts.SRDetailStepContext;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.paulhammant.ngwebdriver.ByAngular;
-import com.paulhammant.ngwebdriver.WaitForAngularRequestsToFinish;
-
-import cucumber.api.Scenario;
-import cucumber.api.java.Before;
 import cucumber.api.java.en.Then;
 
 public class RequiredFieldsStepDef {
@@ -27,56 +24,41 @@ public class RequiredFieldsStepDef {
 	@Autowired
 	private SRDetailStepContext context;
 	
-	private ByAngular byAngular;
-	private Scenario scenario;
+	@Autowired
+	private AngularHelper angularHelper;
 	
-	@Before
-	public void init(Scenario scenario) {
-		byAngular = new ByAngular(driver);
-		this.scenario = scenario;
-	}
+	private static final Logger logger = Logger.getLogger(RequiredFieldsStepDef.class);
+	
 
 	@Then("^I should see that all fields that have an asterics are filled\\.$")
 	public void i_should_see_that_all_fields_that_have_an_asterics_are_filled() throws Throwable {
-		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
-		List<WebElement> inputMains = driver.findElements(By.xpath("//*[@elementid='crudInputMain']"));
-		List<WebElement> fieldRepeat = inputMains.get(0).findElements(byAngular.repeater("fieldMetadata in nonTabFields(displayables)"));
+
+		FieldSetFilter filter = (WebElement we) -> we.findElements(By.className("requiredfieldmark")).size() > 0 && we.findElement(By.className("requiredfieldmark")).isDisplayed();
 		
-		byte[] screenshot = driver.getScreenshotAs(OutputType.BYTES);
-		scenario.embed(screenshot, "image/png");
+		List<WebElement> requiredFields = angularHelper.filterFieldSets(filter);
 		
-		int reqNr = 0;
-		for (WebElement fieldset : fieldRepeat) {
-			// does field have a label
-			if (fieldset.findElements(By.tagName("label")).size() > 0 && fieldset.findElements(By.className("requiredfieldmark")).size() > 0) {
-				
-				// is it required
-				WebElement requiredSpan = fieldset.findElement(By.className("requiredfieldmark"));
-				if (requiredSpan.isDisplayed()) {
-					WebElement inputElem = null;
-					if (fieldset.findElements(By.xpath(".//input")).size() > 0) {
-						inputElem = fieldset.findElement(By.xpath(".//input"));
-					}
-					else if (fieldset.findElements(By.xpath(".//select")).size() > 0) {
-						inputElem = fieldset.findElement(By.xpath(".//select"));
-					}
-					else if (fieldset.findElements(By.xpath(".//textarea")).size() > 0) {
-						inputElem = fieldset.findElement(By.xpath(".//textarea"));
-					}
-					
-					if (inputElem != null) {
-						String displayedText = inputElem.getAttribute("value");
-						System.out.println(fieldset.findElement(By.tagName("label")).getText() + " " + displayedText);
-						reqNr++;
-						assertTrue("No text is displayed.", displayedText.length() > 0);
-					}
-					else {
-						System.out.println("Can't find input element.");
-					}
-				}
+		for (WebElement required : requiredFields) {
+			WebElement inputElem = null;
+			if (required.findElements(By.xpath(".//input")).size() > 0) {
+				inputElem = required.findElement(By.xpath(".//input"));
+			}
+			else if (required.findElements(By.xpath(".//select")).size() > 0) {
+				inputElem = required.findElement(By.xpath(".//select"));
+			}
+			else if (required.findElements(By.xpath(".//textarea")).size() > 0) {
+				inputElem = required.findElement(By.xpath(".//textarea"));
+			}
+			
+			if (inputElem != null) {
+				String displayedText = inputElem.getAttribute("value");
+				logger.info(required.findElement(By.tagName("label")).getText() + " " + displayedText);
+				assertTrue("No text is displayed.", displayedText.length() > 0);
+			}
+			else {
+				logger.info("Can't find input element.");
 			}
 		}
 		
-		System.out.println("Required Fields: " + reqNr);
+		logger.info("Required Fields: " + requiredFields.size());
 	}
 }

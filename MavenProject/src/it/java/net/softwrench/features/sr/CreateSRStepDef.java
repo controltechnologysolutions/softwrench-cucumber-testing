@@ -10,8 +10,10 @@ import java.util.concurrent.TimeUnit;
 
 import net.softwrench.NavigationHelper;
 import net.softwrench.SoftWrenchRemoteDriver;
+import net.softwrench.features.sr.details.RequiredFieldsStepDef;
 import net.softwrench.util.Constants;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
@@ -37,6 +39,8 @@ public class CreateSRStepDef {
 	
 	@Autowired
 	private NavigationHelper navHelper;
+	
+	private static final Logger logger = Logger.getLogger(CreateSRStepDef.class);
 	
 	private ByAngular byAngular;
 	private Scenario scenario;
@@ -90,8 +94,6 @@ public class CreateSRStepDef {
 					
 				} catch(Exception ex) {
 					// in some cases the variable might be missing
-					ex.printStackTrace();
-					//assertTrue(false);
 				}
 			}
 			

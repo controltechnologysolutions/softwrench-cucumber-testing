@@ -7,6 +7,7 @@ import java.util.List;
 import net.softwrench.util.Configuration;
 import net.softwrench.util.Constants;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -29,12 +30,14 @@ public class LoginComplete {
 	@Autowired
 	private Environment env;	
 	
+	private static final Logger logger = Logger.getLogger(LoginComplete.class);
+	
 	private String testEnvironment;
 	
 	@Before
 	public void beforeScenario() {
 		testEnvironment = env.getProperty("test.instance");
-		System.out.println("Go to test environment: " + testEnvironment);
+		logger.debug("Go to test environment: " + testEnvironment);
 		driver.get(testEnvironment);
 	}
 
@@ -70,7 +73,7 @@ public class LoginComplete {
 	
 	@After
 	public void afterScenario() {
-		System.out.println("Logging out.");
+		logger.debug("Logging out.");
 		driver.get(testEnvironment + Constants.LOGOUT_URL);
 	}
 
