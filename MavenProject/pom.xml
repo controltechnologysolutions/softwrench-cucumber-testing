@@ -92,6 +92,7 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+					<executable>${JAVA_1_8_HOME}/bin/javac</executable>
 				</configuration>
 			</plugin>
 		</plugins>
