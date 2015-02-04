@@ -1,10 +1,12 @@
 package net.softwrench.features.helpers.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 
 import net.softwrench.features.helpers.AngularHelper;
+import net.softwrench.features.helpers.FieldSetFilter;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriverException;
@@ -61,6 +63,24 @@ public class AngularHelperImpl implements AngularHelper {
 		}
 		
 		return null;
+	}
+	
+	@Override
+	public List<WebElement> filterFieldSets(FieldSetFilter filter) {
+		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
+		
+		if (inputMain == null)
+			inputMain = driver.findElements(By.xpath("//*[@elementid='crudInputMain']")).get(0);
+			
+		List<WebElement> fieldRepeat = inputMain.findElements(byAngular.repeater("fieldMetadata in nonTabFields(displayables)"));
+		
+		List<WebElement> filteredFieldSets = new ArrayList<WebElement>();
+		for (WebElement fieldSet : fieldRepeat) {
+			if (filter.filterElement(fieldSet))
+				filteredFieldSets.add(fieldSet);
+		}
+		
+		return filteredFieldSets;
 	}
 	
 	@Override

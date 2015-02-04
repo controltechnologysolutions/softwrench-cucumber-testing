@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import net.softwrench.NavigationHelper;
 import net.softwrench.util.Constants;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,16 +15,9 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
-import com.paulhammant.ngwebdriver.WaitForAngularRequestsToFinish;
-
-import cucumber.api.java.Before;
 
 @Component
 @Scope("cucumber-glue")
@@ -31,6 +25,9 @@ public class SoftWrenchNavigationHelper implements NavigationHelper {
 	
 	@Autowired
 	private Environment env;	
+	
+	private static final Logger logger = Logger.getLogger(SoftWrenchNavigationHelper.class);
+	
 	
 	private String testEnvironment;
 	private String username;
@@ -46,7 +43,7 @@ public class SoftWrenchNavigationHelper implements NavigationHelper {
 	
 	@Override
 	public void makeSureImLoggedIn(String user, String pw, WebDriver driver) {
-		System.out.println("Logging in to " + testEnvironment + " as " + user);
+		logger.info("Logging in to " + testEnvironment + " as " + user);
 		driver.get(testEnvironment);
 		
 		WebDriverWait wait = new WebDriverWait(driver, 10); 
