@@ -10,6 +10,7 @@ import java.util.List;
 import net.softwrench.features.helpers.AngularHelper;
 import net.softwrench.features.sr.contexts.DialogSelection;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
@@ -34,6 +35,8 @@ public class OwnerAndGroupPopupStefDef {
 	
 	@Autowired
 	private AngularHelper angularHelper;
+	
+	private static final Logger logger = Logger.getLogger(OwnerAndGroupPopupStefDef.class);
 	
 	private ByAngular byAngular;
 	private WebElement lookupModel;
@@ -133,7 +136,7 @@ public class OwnerAndGroupPopupStefDef {
 			if (inputs != null) {
 				for (WebElement input : inputs) {
 					if (input.isDisplayed()) {
-						System.out.println("input " + input.getAttribute("ng-model") + " has value " + input.getAttribute("value"));
+						logger.info("input " + input.getAttribute("ng-model") + " has value " + input.getAttribute("value"));
 						if (input.getAttribute("ng-model").equals("lookupAssociationsCode[fieldMetadata.attribute]"))
 							assertEquals(selection.getColumnA(), input.getAttribute("value"));
 						if (input.getAttribute("ng-model").equals("lookupAssociationsDescription[fieldMetadata.attribute]"))

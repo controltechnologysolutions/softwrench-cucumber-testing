@@ -43,7 +43,7 @@ public class SoftWrenchNavigationHelper implements NavigationHelper {
 	
 	@Override
 	public void makeSureImLoggedIn(String user, String pw, WebDriver driver) {
-		logger.info("Logging in to " + testEnvironment + " as " + user);
+		logger.debug("Logging in to " + testEnvironment + " as " + user);
 		driver.get(testEnvironment);
 		
 		WebDriverWait wait = new WebDriverWait(driver, 10); 

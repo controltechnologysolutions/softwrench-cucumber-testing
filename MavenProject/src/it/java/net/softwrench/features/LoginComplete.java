@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
-import net.softwrench.features.sr.details.RequiredFieldsStepDef;
 import net.softwrench.util.Configuration;
 import net.softwrench.util.Constants;
 
@@ -38,7 +37,7 @@ public class LoginComplete {
 	@Before
 	public void beforeScenario() {
 		testEnvironment = env.getProperty("test.instance");
-		logger.info("Go to test environment: " + testEnvironment);
+		logger.debug("Go to test environment: " + testEnvironment);
 		driver.get(testEnvironment);
 	}
 
@@ -74,7 +73,7 @@ public class LoginComplete {
 	
 	@After
 	public void afterScenario() {
-		logger.info("Logging out.");
+		logger.debug("Logging out.");
 		driver.get(testEnvironment + Constants.LOGOUT_URL);
 	}
 
