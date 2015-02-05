@@ -114,11 +114,12 @@ public class CreateSRStepDef {
 				
 				String classes = successMsg.getAttribute("class");
 				assertTrue("Success Message is not displayed. Classes are " + classes, !classes.contains("ng-hide"));
-				return;
 			} catch(Exception e) {
+				logger.error("Exception when checking for success message", e);
 				byte[] screenshot = driver.getScreenshotAs(OutputType.BYTES);
 				scenario.embed(screenshot, "image/png");
 			}
+			return;
 		}
 		
 		WebElement errorMsg = driver.findElement(By.xpath("//div[@ng-show='hasValidationError']"));	
