@@ -1,6 +1,7 @@
 package net.softwrench.features.sr;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -9,11 +10,11 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import net.softwrench.NavigationHelper;
-import net.softwrench.SoftWrenchRemoteDriver;
-import net.softwrench.features.sr.details.RequiredFieldsStepDef;
+import net.softwrench.features.helpers.Reporter;
 import net.softwrench.util.Constants;
 
 import org.apache.log4j.Logger;
+import org.junit.internal.runners.statements.Fail;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
@@ -39,6 +40,9 @@ public class CreateSRStepDef {
 	
 	@Autowired
 	private NavigationHelper navHelper;
+	
+	@Autowired
+	private Reporter reporter;
 	
 	private static final Logger logger = Logger.getLogger(CreateSRStepDef.class);
 	
@@ -106,18 +110,22 @@ public class CreateSRStepDef {
 
 	@Then("^I should see a '(\\w+)' message$")
 	public void i_should_see_a_message(String result) throws Throwable {
+		
 		if (result.equals(Constants.SUCCESS)) {
 			try {
-				WebElement successMsg = driver.findElement(By.xpath("//div[@ng-show='hasSuccessDetail']"));
-				WebDriverWait wait = new WebDriverWait(driver, 5); // wait for a maximum of 5 seconds
-				wait.until(ExpectedConditions.visibilityOf(successMsg));
+				WebDriverWait wait = new WebDriverWait(driver, 10); // wait for a maximum of 5 seconds
+				wait.until(ExpectedConditions.presenceOfElementLocated(By.id("listgrid")));
 				
-				String classes = successMsg.getAttribute("class");
-				assertTrue("Success Message is not displayed. Classes are " + classes, !classes.contains("ng-hide"));
+				WebElement successMsg = driver.findElement(By.id("divsuccessmessagedetail"));
+				WebElement successList = driver.findElement(By.id("divsuccessmessagelist"));
+
+				logger.info("Message in success message box: " + successMsg.getText());
+				logger.info("Message in success message list: " + successList.getText());
+				assertTrue("Success Message is not displayed.", successMsg.isDisplayed() || successList.isDisplayed());
 			} catch(Exception e) {
 				logger.error("Exception when checking for success message", e);
-				byte[] screenshot = driver.getScreenshotAs(OutputType.BYTES);
-				scenario.embed(screenshot, "image/png");
+				reporter.takeScreenshot(e.getMessage());
+				throw e;
 			}
 			return;
 		}
