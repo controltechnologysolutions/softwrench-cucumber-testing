@@ -1,6 +1,5 @@
 package net.softwrench.features.helpers;
 
-import org.openqa.selenium.OutputType;
 
 public interface Reporter {
 

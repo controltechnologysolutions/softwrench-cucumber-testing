@@ -1,7 +1,6 @@
 package net.softwrench.features.sr;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -14,9 +13,7 @@ import net.softwrench.features.helpers.Reporter;
 import net.softwrench.util.Constants;
 
 import org.apache.log4j.Logger;
-import org.junit.internal.runners.statements.Fail;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -47,13 +44,11 @@ public class CreateSRStepDef {
 	private static final Logger logger = Logger.getLogger(CreateSRStepDef.class);
 	
 	private ByAngular byAngular;
-	private Scenario scenario;
 	
 	@Before
 	public void init(Scenario scenario) {
 		driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
 		byAngular = new ByAngular(driver);
-		this.scenario = scenario;
 	}
 
 	@Given("^I click on the new SR button$")

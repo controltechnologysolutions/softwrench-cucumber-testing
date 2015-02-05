@@ -8,11 +8,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import net.softwrench.features.helpers.AngularHelper;
+import net.softwrench.features.helpers.Reporter;
 import net.softwrench.features.sr.contexts.DialogSelection;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,16 +36,17 @@ public class OwnerAndGroupPopupStefDef {
 	@Autowired
 	private AngularHelper angularHelper;
 	
+	@Autowired
+	private Reporter reporter;
+	
 	private static final Logger logger = Logger.getLogger(OwnerAndGroupPopupStefDef.class);
 	
 	private ByAngular byAngular;
 	private WebElement lookupModel;
-	private Scenario scenario;
 	
 	@Before
 	public void init(Scenario scenario) {
 		byAngular = new ByAngular(driver);
-		this.scenario = scenario;
 	}
 
 
@@ -74,8 +75,7 @@ public class OwnerAndGroupPopupStefDef {
 		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
 		
 		if (lookupModel.findElements(By.xpath(".//*[@ng-model='" + column + "']")).size() < 1) {
-	    	byte[] screenshot = driver.getScreenshotAs(OutputType.BYTES);
-	    	scenario.embed(screenshot, "image/png");
+	    	reporter.takeScreenshot("Can't find input field.");
 	    	assertTrue("Can't find input field.", false);
 	    }
 		
