@@ -6,6 +6,7 @@ import java.net.URL;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.remote.CommandExecutor;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.HttpCommandExecutor;
@@ -28,6 +29,7 @@ public class SoftWrenchRemoteDriver extends RemoteWebDriver {
 		CommandExecutor exec = new HttpCommandExecutor(new URL(env.getProperty("grid.instance")));
 		this.setCommandExecutor(exec);
 		this.startSession( DesiredCapabilities.firefox());
+		this.manage().window().setSize(new Dimension(1024, 768));
 	}
 
 	public SoftWrenchRemoteDriver() throws MalformedURLException 

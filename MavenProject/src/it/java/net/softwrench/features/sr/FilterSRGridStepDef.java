@@ -48,7 +48,8 @@ public class FilterSRGridStepDef {
 		
 		WebElement header = driver.findElement(By.id("listgridthread"));
 		List<WebElement> searchInputs = header.findElements(By.xpath(".//input[@type='search']"));
-	
+		searchInputs = angularHelper.applyFilter(searchInputs, we -> we.isDisplayed());
+		
 		if (searchInputs.size() < columnnr) {
 			reporter.takeScreenshot("Column nr " + columnnr + " does not exist.");
 			fail("Column nr " + columnnr + " does not exist.");
@@ -69,13 +70,11 @@ public class FilterSRGridStepDef {
 		
 		
 		int resultNr = 0;
-		int pagenr = 1;
 		
 		WebElement paginationHeader = driver.findElement(By.id("affixpagination"));
 		WebElement currentPageElement = paginationHeader.findElement(By.xpath(".//input[@ng-model='paginationData.pageNumber']"));
 		WebElement ofLabel = currentPageElement.findElement(By.xpath(".//following-sibling::label[1]"));
 		
-		int currentPage = new Integer(currentPageElement.getAttribute("value"));
 		int totalPages = new Integer(ofLabel.getText().substring(ofTotalLabel.length()).trim());
 		
 		// iterate over all pages
