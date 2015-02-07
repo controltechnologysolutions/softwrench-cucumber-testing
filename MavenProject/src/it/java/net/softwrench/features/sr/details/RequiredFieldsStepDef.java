@@ -4,8 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import net.softwrench.features.functinter.WebElementFilter;
 import net.softwrench.features.helpers.AngularHelper;
-import net.softwrench.features.helpers.WebElementFilter;
 import net.softwrench.features.sr.contexts.SRDetailStepContext;
 
 import org.apache.log4j.Logger;

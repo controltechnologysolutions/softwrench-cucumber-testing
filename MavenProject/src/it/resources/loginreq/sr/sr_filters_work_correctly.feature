@@ -1,4 +1,4 @@
-@sr @medium @inprg
+@sr @medium
 Feature: When I enter a search string in any of the filters for columns,
 	the table contents is filtered according to the chosen filter.
  
@@ -15,7 +15,7 @@ Feature: When I enter a search string in any of the filters for columns,
   	| 87		   | 1  |
   	| test 		   | 2  |
     | aman         | 3  |
-  	| closed  	   | 4  |
+ 	| closed  	   | 4  |
   	| robert       | 5  |
     
   

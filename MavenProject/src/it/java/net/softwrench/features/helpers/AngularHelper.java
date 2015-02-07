@@ -3,6 +3,8 @@ package net.softwrench.features.helpers;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.softwrench.features.functinter.WebElementFilter;
+
 import org.openqa.selenium.WebElement;
 
 public interface AngularHelper {

@@ -5,8 +5,8 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import net.softwrench.features.functinter.WebElementFilter;
 import net.softwrench.features.helpers.AngularHelper;
-import net.softwrench.features.helpers.WebElementFilter;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriverException;
