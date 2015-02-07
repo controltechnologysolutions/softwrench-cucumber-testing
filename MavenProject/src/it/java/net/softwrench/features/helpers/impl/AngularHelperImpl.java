@@ -5,8 +5,8 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import net.softwrench.features.functinter.WebElementFilter;
 import net.softwrench.features.helpers.AngularHelper;
-import net.softwrench.features.helpers.FieldSetFilter;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriverException;
@@ -66,7 +66,7 @@ public class AngularHelperImpl implements AngularHelper {
 	}
 	
 	@Override
-	public List<WebElement> filterFieldSets(FieldSetFilter filter) {
+	public List<WebElement> filterFieldSets(WebElementFilter filter) {
 		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
 		
 		if (inputMain == null)
@@ -74,13 +74,7 @@ public class AngularHelperImpl implements AngularHelper {
 			
 		List<WebElement> fieldRepeat = inputMain.findElements(byAngular.repeater("fieldMetadata in nonTabFields(displayables)"));
 		
-		List<WebElement> filteredFieldSets = new ArrayList<WebElement>();
-		for (WebElement fieldSet : fieldRepeat) {
-			if (filter.filterElement(fieldSet))
-				filteredFieldSets.add(fieldSet);
-		}
-		
-		return filteredFieldSets;
+		return applyFilter(fieldRepeat, filter);
 	}
 	
 	@Override
@@ -89,5 +83,16 @@ public class AngularHelperImpl implements AngularHelper {
 			inputMain = driver.findElements(By.xpath("//*[@elementid='crudInputMain']")).get(0);
 		
 		return inputMain;
+	}
+	
+	@Override
+	public List<WebElement> applyFilter(List<WebElement> list, WebElementFilter filter) {
+		List<WebElement> filteredFieldSets = new ArrayList<WebElement>();
+		for (WebElement fieldSet : list) {
+			if (filter.filterElement(fieldSet))
+				filteredFieldSets.add(fieldSet);
+		}
+		
+		return filteredFieldSets;
 	}
 }

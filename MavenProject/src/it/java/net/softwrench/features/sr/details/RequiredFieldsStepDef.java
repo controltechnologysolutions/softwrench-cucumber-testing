@@ -4,8 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import net.softwrench.features.functinter.WebElementFilter;
 import net.softwrench.features.helpers.AngularHelper;
-import net.softwrench.features.helpers.FieldSetFilter;
 import net.softwrench.features.sr.contexts.SRDetailStepContext;
 
 import org.apache.log4j.Logger;
@@ -33,7 +33,7 @@ public class RequiredFieldsStepDef {
 	@Then("^I should see that all fields that have an asterics are filled\\.$")
 	public void i_should_see_that_all_fields_that_have_an_asterics_are_filled() throws Throwable {
 
-		FieldSetFilter filter = (WebElement we) -> we.findElements(By.className("requiredfieldmark")).size() > 0 && we.findElement(By.className("requiredfieldmark")).isDisplayed();
+		WebElementFilter filter = (WebElement we) -> we.findElements(By.className("requiredfieldmark")).size() > 0 && we.findElement(By.className("requiredfieldmark")).isDisplayed();
 		
 		List<WebElement> requiredFields = angularHelper.filterFieldSets(filter);
 		

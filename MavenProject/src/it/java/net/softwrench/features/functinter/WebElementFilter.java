@@ -1,8 +1,8 @@
-package net.softwrench.features.helpers;
+package net.softwrench.features.functinter;
 
 import org.openqa.selenium.WebElement;
 
 @FunctionalInterface
-public interface FieldSetFilter {
+public interface WebElementFilter {
 	public boolean filterElement(WebElement element);
 }
