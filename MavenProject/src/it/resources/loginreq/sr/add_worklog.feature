@@ -17,7 +17,7 @@ Feature: I can create a new worklog given all required fields are filled
  Examples:
   	| rownumber | fields               | success_error |
     | 1         | summary, description | success |
-    | 4         | summary              | success |
-    | 10        | description          | error   |
+  #  | 4         | summary              | success |
+  #  | 10        | description          | error   |
     
  

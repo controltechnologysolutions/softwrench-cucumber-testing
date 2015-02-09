@@ -81,10 +81,12 @@ public class FilterSRGridStepDef {
 			filterField = searchInputs.get(columnnr - 1);
 			
 			filterField.sendKeys(Keys.ENTER);
-			String filtername = filterHelper.getFilterName(columnnr, filterNr);
+			String filtername = filterHelper.getFilterName(columnnr, i);
 			
-			if (filtername != null)
-				resultsPerFilter.put(filtername, new SearchResults(getShownTotelItemsNr(), getResults(columnnr)));
+			if (filtername == null)
+				fail("Can't retrieve filtername.");
+			
+			resultsPerFilter.put(filtername, new SearchResults(getShownTotelItemsNr(), getResults(columnnr)));
 		}
 	}
 	

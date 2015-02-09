@@ -75,6 +75,39 @@ public class FilterHelperImpl implements FilterHelper {
 	}
 	
 	@Override
+	public boolean selectFilter(int columnnr, String filtername) throws NoSuchColumnException, NoSuchFilterException {
+		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
+		
+		List<WebElement> filters = getFilters(columnnr);
+		
+		WebElement filter = null;
+		for (int i = 0; i < filters.size(); i++ ) {
+			
+			String currentFiltername = getFilterName(columnnr, i + 1);
+			System.out.println("filtername: " + currentFiltername);
+			
+			if (currentFiltername != null && currentFiltername.equals(filtername))
+				filter = filters.get(i);
+		}
+		
+		if (filter == null)
+			throw new NoSuchFilterException("There exists no filter with name " + filtername + ".");
+		
+		WebElement parent = filter.findElement(By.xpath(".//.."));
+		
+		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
+		parent.findElement(By.xpath(".//preceding-sibling::span[1]")).click();
+		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
+		
+		if (!filter.isDisplayed())
+			return false;
+		
+		filter.click();
+		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
+		return true;
+	}
+	
+	@Override
 	public String getFilterName(int columnnr, int filternr) throws NoSuchColumnException, NoSuchFilterException {
 		List<WebElement> filters = getFilters(columnnr);
 
@@ -82,10 +115,12 @@ public class FilterHelperImpl implements FilterHelper {
 			throw new NoSuchFilterException("There is no filter at position " + filternr);
 		
 		WebElement filter = filters.get(filternr - 1);
+		System.out.println("filter: " + filter.getTagName());
 		AngularModelAccessor ngModel = new AngularModelAccessor(driver);
 		try {
-			return ngModel.retrieveAsString(filter, "searchOperator.description.id");
+			return ngModel.retrieveAsString(filter, "searchOperations()[" + (filternr-1) + "].id");
 		} catch (Exception e) {
+			//e.printStackTrace();
 			return null;
 		}
 	}

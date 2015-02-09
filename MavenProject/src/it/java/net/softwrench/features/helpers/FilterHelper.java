@@ -22,4 +22,7 @@ public interface FilterHelper {
 	public abstract String getFilterName(int columnnr, int filternr)
 			throws NoSuchColumnException, NoSuchFilterException;
 
+	public abstract boolean selectFilter(int columnnr, String filtername)
+			throws NoSuchColumnException, NoSuchFilterException;
+
 }
