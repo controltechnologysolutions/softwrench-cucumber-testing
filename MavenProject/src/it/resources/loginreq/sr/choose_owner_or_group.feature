@@ -1,4 +1,4 @@
-@sr @srdetails 
+@sr @srdetails @medium
 Feature: Owner and Owner Group popup 
   When I click on the button to open the owner popup, a popup opens that allows me to choose a user. 
   	   Same is true for owner group popup. If I select either of those two fields and fill it using the

@@ -109,7 +109,7 @@ public class CreateSRStepDef {
 		if (result.equals(Constants.SUCCESS)) {
 			try {
 				WebDriverWait wait = new WebDriverWait(driver, 10); // wait for a maximum of 5 seconds
-				wait.until(ExpectedConditions.presenceOfElementLocated(By.id("listgrid")));
+				wait.until(ExpectedConditions.presenceOfElementLocated(By.id("divsuccessmessagelist")));
 				
 				WebElement successMsg = driver.findElement(By.id("divsuccessmessagedetail"));
 				WebElement successList = driver.findElement(By.id("divsuccessmessagelist"));
