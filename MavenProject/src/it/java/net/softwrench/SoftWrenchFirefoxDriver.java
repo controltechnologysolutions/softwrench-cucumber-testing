@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-@Component
-@Scope("cucumber-glue")
+//@Component
+//@Scope("cucumber-glue")
 public class SoftWrenchFirefoxDriver extends FirefoxDriver{
 
 	@Autowired
