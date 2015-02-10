@@ -1,4 +1,4 @@
- @sr @create @worklog @medium @inprg
+ @sr @create @worklog @medium
 Feature: I can create a new worklog given all required fields are filled
   As a user,
   I want to be able to create a new worklog for an SR.
