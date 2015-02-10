@@ -172,6 +172,7 @@
 								<grid.instance>${grid.instance}</grid.instance>
 								<test.user.username>${test.user.username}</test.user.username>
 								<test.user.password>${test.user.password}</test.user.password>
+								<test.browser>${test.browser}</test.browser>
 							</systemPropertyVariables>
 						</configuration>
 					</plugin>
@@ -240,5 +241,6 @@
 		<grid.instance>http://10.50.100.148:4444/wd/hub</grid.instance>
 		<test.user.username>swadmin</test.user.username>
 		<test.user.password>sw@dm1n</test.user.password>
+		<test.browser>Firefox</test.browser>
 	</properties>
 </project>

@@ -6,6 +6,10 @@ import java.net.URL;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+import net.softwrench.features.sr.general.SRGeneralSteps;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.remote.CommandExecutor;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -23,12 +27,22 @@ public class SoftWrenchRemoteDriver extends RemoteWebDriver {
 	@Autowired
 	private Environment env;	
 	
+	private static final Logger logger = Logger.getLogger(SoftWrenchRemoteDriver.class);
 	
 	@PostConstruct
 	public void init() throws MalformedURLException {
 		CommandExecutor exec = new HttpCommandExecutor(new URL(env.getProperty("grid.instance")));
 		this.setCommandExecutor(exec);
-		this.startSession( DesiredCapabilities.firefox());
+		// default is firefox
+		Capabilities capabilities = DesiredCapabilities.firefox();
+		String browsertype = env.getProperty("test.browser");
+		logger.info("Testing in " + browsertype);
+		if (browsertype.equals("IE")) 
+			capabilities = DesiredCapabilities.internetExplorer();
+		else if (browsertype.equals("Chrome"))
+			capabilities = DesiredCapabilities.chrome();
+		
+		this.startSession( capabilities );
 		this.manage().window().setSize(new Dimension(1024, 768));
 	}
 
