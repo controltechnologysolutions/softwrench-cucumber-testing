@@ -132,6 +132,7 @@ public class FilterSRGridStepDef {
 	@Then("^I should see only records in the grid that contain '(.+?)' in column '(\\d+)'$")
 	public void i_should_see_only_records_in_the_grid_that_contain_in_column(String filterstring, int column) throws Throwable {
 		for (String operator : resultsPerFilter.keySet()) {
+			reporter.addMessage("Checking column " + column + " with filterstring " + filterstring + " and operator " + operator + ".");
 			for (String result : resultsPerFilter.get(operator).getResults()) {
 				assertTrue("The result (" + result + ") does not " + operator + " " + filterstring + ".", filterService.isCorrect(operator, result, filterstring));
 			}
@@ -141,6 +142,7 @@ public class FilterSRGridStepDef {
 	@Then("^the number of records shown equals the number shown for 'Totel Items'$")
 	public void the_number_of_records_shown_equals_the_number_shown_for_Totel_Items() throws Throwable {
 		for (String operator : resultsPerFilter.keySet()) {
+			reporter.addMessage("For operator " + operator + " total number of items in grid is " + resultsPerFilter.get(operator).getResults().size() + " and displayed number is " + resultsPerFilter.get(operator).getNumberOfResultsDisplayed());
 			assertTrue("Number of rows in grid is different than the number displayed for 'Total Items.' " + resultsPerFilter.get(operator).getResults().size() + " != " + resultsPerFilter.get(operator).getNumberOfResultsDisplayed(), resultsPerFilter.get(operator).getNumberOfResultsDisplayed() == resultsPerFilter.get(operator).getResults().size());
 		}
 	}
