@@ -84,7 +84,6 @@ public class FilterHelperImpl implements FilterHelper {
 		for (int i = 0; i < filters.size(); i++ ) {
 			
 			String currentFiltername = getFilterName(columnnr, i + 1);
-			System.out.println("filtername: " + currentFiltername);
 			
 			if (currentFiltername != null && currentFiltername.equals(filtername))
 				filter = filters.get(i);
@@ -115,7 +114,7 @@ public class FilterHelperImpl implements FilterHelper {
 			throw new NoSuchFilterException("There is no filter at position " + filternr);
 		
 		WebElement filter = filters.get(filternr - 1);
-		System.out.println("filter: " + filter.getTagName());
+		
 		AngularModelAccessor ngModel = new AngularModelAccessor(driver);
 		try {
 			return ngModel.retrieveAsString(filter, "searchOperations()[" + (filternr-1) + "].id");

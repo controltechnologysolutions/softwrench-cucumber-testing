@@ -11,13 +11,13 @@ Feature: I can create a new worklog given all required fields are filled
     And I click on the <rownumber> record that is not closed in the grid
     And I click on the worklog tab
     When I click on the SR worklog button
-    And I fill in the '<fields>'
+    And I fill in the '<fields>' and submit
     Then I should see a '<success_error>' message
     
  Examples:
   	| rownumber | fields               | success_error |
-    | 1         | summary, description | success |
-  #  | 4         | summary              | success |
-  #  | 10        | description          | error   |
+    | 3         | description,longdescription_.ldtext | success |
+    | 6         | description              | success |
+    | 15        | longdescription_.ldtext           | error   |
     
  

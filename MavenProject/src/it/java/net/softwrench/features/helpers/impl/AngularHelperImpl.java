@@ -95,4 +95,21 @@ public class AngularHelperImpl implements AngularHelper {
 		
 		return filteredFieldSets;
 	}
+	
+	/**
+	 * Method to retrieve a list of repeated elements (using Angular's repeat function).
+	 * @param root The element from which to start looking for the given repeater string.
+	 * In case root is null, this method uses the driver's findElement function.
+	 * @param repeaterString The repeater string to look for (e.g. fieldMetadata in nonTabFields(displayables)).
+	 * @return A list of WebElements that are found for the repeater string.
+	 */
+	@Override
+	public List<WebElement> getRepeatedElements(WebElement root, String repeaterString) {
+		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
+		
+		if (root == null)
+			return driver.findElements(byAngular.repeater(repeaterString));
+		
+		return root.findElements(byAngular.repeater(repeaterString));
+	}
 }

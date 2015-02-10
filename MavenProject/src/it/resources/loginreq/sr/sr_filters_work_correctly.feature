@@ -1,4 +1,4 @@
-@sr @medium @inprg
+@sr @medium
 Feature: When I enter a search string in any of the filters for columns,
 	the table contents is filtered according to the chosen filter.
  
