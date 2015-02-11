@@ -70,10 +70,12 @@ public class SRGeneralSteps {
 	
 	@Then("^I should see a '(\\w+)' message$")
 	public void i_should_see_a_message(String result) throws Throwable {
+		reporter.takeScreenshot("Submitted a new request for a new entity.");
+		
 		WebDriverWait wait = new WebDriverWait(driver, 10); 
 		wait.until(new SpinnerDonePredicate());
 		
-		reporter.takeScreenshot("Submitted a new request for a new entity.");
+		reporter.takeScreenshot("Result message.");
 		
 		if (result.equals(Constants.SUCCESS)) {
 			try {
