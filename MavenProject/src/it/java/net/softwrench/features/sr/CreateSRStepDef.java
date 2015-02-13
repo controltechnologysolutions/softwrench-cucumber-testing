@@ -35,12 +35,9 @@ public class CreateSRStepDef {
 	private Reporter reporter;
 	
 	
-	private ByAngular byAngular;
-	
 	@Before
 	public void init(Scenario scenario) {
 		driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
-		byAngular = new ByAngular(driver);
 	}
 
 	@Given("^I click on the new SR button$")
@@ -50,50 +47,7 @@ public class CreateSRStepDef {
 		
 	}
 
-	@When("^I fill in the following fields '(\\w+)' with '(.+)' and submit$")
-	public void i_fill_in_the_following_fields_with_values(
-			String fields, String values) throws Throwable {
-		
-		//parse fields
-		String[] fieldArray = fields.split(",");
-		String[] valueArray = values.split(",");
-		
-		Map<String, String> fieldValues = new HashMap<String, String>();
-		for (int i = 0; i<fieldArray.length; i++) {
-			fieldValues.put(fieldArray[i], valueArray[i]);
-		}
-		
-		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
-		List<WebElement> inputMains = driver.findElements(By.xpath("//*[@elementid='crudInputMain']"));
-		List<WebElement> fieldRepeat = inputMains.get(0).findElements(byAngular.repeater("fieldMetadata in nonTabFields(displayables)"));
-		
-		AngularModelAccessor ngModel = new AngularModelAccessor(driver);
-		for (WebElement elem : fieldRepeat) {
-			
-			WebElement input = null;
-			if (elem.findElements(By.tagName("input")).size() > 0)
-				input = elem.findElement(By.tagName("input"));
-			
-			if (input.getAttribute("ng-model") != null && input.getAttribute("ng-model").equals("datamap[fieldMetadata.attribute]")) {			
-				try {
-					String attribute = ngModel.retrieveAsString(input, "fieldMetadata.attribute");
-					
-					if (fieldValues.containsKey(attribute)) {
-						// in case we're already at the input element
-						input.sendKeys(fieldValues.get(attribute) + " " + new Date());
-					}
-					
-				} catch(Exception ex) {
-					// in some cases the variable might be missing
-				}
-			}
-			
-		}
-		
-		WebElement submitBtn = driver.findElement(By.xpath("//button[@data-original-title='Submit']"));
-		submitBtn.click();
-		
-	}
+	
 
 	
 	

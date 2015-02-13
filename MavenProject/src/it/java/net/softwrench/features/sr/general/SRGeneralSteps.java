@@ -6,6 +6,7 @@ import java.util.List;
 
 import net.softwrench.NavigationHelper;
 import net.softwrench.features.SpinnerDonePredicate;
+import net.softwrench.features.helpers.DetailsHelper;
 import net.softwrench.features.helpers.Reporter;
 import net.softwrench.features.sr.contexts.SRDetailStepContext;
 import net.softwrench.util.Constants;
