@@ -1,25 +1,18 @@
 package net.softwrench.features.sr.details;
 
 import java.io.File;
-import java.io.InputStream;
-import java.util.Random;
-import java.util.stream.Stream;
 
 import net.softwrench.features.helpers.DetailsHelper;
 import net.softwrench.util.Constants;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
-import com.gargoylesoftware.htmlunit.javascript.configuration.JavaScriptConfiguration;
-
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 
@@ -53,9 +46,9 @@ public class AddAttachmentStepDef {
 		   Resource img = resources[imgNr];
 		   File imgFile = img.getFile();
 		   
-		   ((JavascriptExecutor) driver).executeScript("document.getElementById('uploadFile').disabled = false;");
-		   WebElement uploadElement = driver.findElement(By.id("uploadFile"));
+		   WebElement uploadElement = driver.findElement(By.id("uploadBtn"));
 		   uploadElement.sendKeys(imgFile.getAbsolutePath());
+		   
 	   }
 	}
 }
