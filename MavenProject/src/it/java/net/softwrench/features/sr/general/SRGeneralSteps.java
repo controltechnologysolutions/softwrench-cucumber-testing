@@ -54,6 +54,8 @@ public class SRGeneralSteps {
 	public void i_click_on_a_row_in_the_grid(int rownumber) throws Throwable {
 		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
 		
+		context.setRowClickedOn(rownumber);
+		
 		List<WebElement> cells = driver.findElements(By.xpath("//tbody/tr[" + rownumber + "]/td[3]"));
 		if (cells.size() > 0) {
 			WebElement idCell = cells.get(0);
