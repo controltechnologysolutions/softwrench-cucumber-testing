@@ -7,6 +7,7 @@ import java.util.List;
 import net.softwrench.NavigationHelper;
 import net.softwrench.features.SpinnerDonePredicate;
 import net.softwrench.features.helpers.DetailsHelper;
+import net.softwrench.features.helpers.GridHelper;
 import net.softwrench.features.helpers.Reporter;
 import net.softwrench.features.sr.contexts.SRDetailStepContext;
 import net.softwrench.util.Constants;
@@ -35,6 +36,9 @@ public class SRGeneralSteps {
 	private NavigationHelper navHelper;
 	
 	@Autowired
+	private GridHelper gridHelper;
+	
+	@Autowired
 	private SRDetailStepContext context;
 	
 	@Autowired
@@ -55,20 +59,8 @@ public class SRGeneralSteps {
 		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
 		
 		context.setRowClickedOn(rownumber);
+		gridHelper.clickOnRow(rownumber);
 		
-		List<WebElement> cells = driver.findElements(By.xpath("//tbody/tr[" + rownumber + "]/td[3]"));
-		if (cells.size() > 0) {
-			WebElement idCell = cells.get(0);
-			// get id of SR
-			context.setSelectedId(idCell.getText());
-			// get title of SR
-			WebElement titleCell = driver.findElement(By.xpath("//tbody/tr[" + rownumber + "]/td[4]"));
-			context.setSelectedTitle(titleCell.getText());
-			
-			idCell.click();
-		}
-		else
-			throw new PendingException("No data row " + rownumber + ".");
 	}
 	
 	@Then("^I should see a '(\\w+)' message$")

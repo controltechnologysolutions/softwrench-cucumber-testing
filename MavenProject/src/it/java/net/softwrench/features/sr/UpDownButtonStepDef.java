@@ -1,5 +1,6 @@
 package net.softwrench.features.sr;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -7,6 +8,7 @@ import java.util.List;
 
 import net.softwrench.features.exceptions.RecordNumberDoesNotExist;
 import net.softwrench.features.helpers.AngularHelper;
+import net.softwrench.features.helpers.DetailsHelper;
 import net.softwrench.features.helpers.GridHelper;
 import net.softwrench.features.sr.contexts.SRDetailStepContext;
 
@@ -27,6 +29,8 @@ public class UpDownButtonStepDef {
 	
 	protected static final String PREVIOUS = "ng-click='crawl(0)'";
 	protected static final String NEXT = "ng-click='crawl(1)'";
+	protected static final String FIRST = "first";
+	protected static final String LAST = "last";
 	
 	@Autowired
 	private RemoteWebDriver driver;
@@ -38,11 +42,20 @@ public class UpDownButtonStepDef {
 	private GridHelper gridHelper;
 	
 	@Autowired
+	private DetailsHelper detailsHelper;
+	
+	@Autowired
 	private SRDetailStepContext context;
 	
 	
 	@Value( "${sr.grid.oftotalpages.label}" )
 	private String ofTotalLabel;
+	
+	@Value( "${sr.header.heading.label}" )
+	private String headingLabel;
+	
+	@Value( "${sr.header.heading.summary}" )
+	private String headingSummary;
 
 	private List<String> ids;
 	
@@ -68,9 +81,25 @@ public class UpDownButtonStepDef {
 		boolean enabled = disenabled.equals("enabled");
 		assertTrue("Button " + updown + " should be " + disenabled + " but is not.", enabled == button.isEnabled());
 	}
+	
+	@Then("^I click on the arrow '(down|up)' button$")
+	public void i_click_on_the_arrow_down_button(String updown) throws Throwable {
+		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
+		
+		String buttonXPath = null;
+		
+		if (updown.equals("up"))
+			buttonXPath = NEXT;
+		else
+			buttonXPath = PREVIOUS;
+		
+		WebElement button = driver.findElement(By.xpath("//button[@" + buttonXPath + "]"));
+		button.click();
+	}
 
 	@Then("^I should see the '(previous|next)' record$")
 	public void i_should_see_the_next_record(String prevOrNext) throws Throwable {
+		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
 	    int expectedRecordNr = context.getRowClickedOn();
 	    
 	    if (prevOrNext.equals("previous"))
@@ -83,12 +112,25 @@ public class UpDownButtonStepDef {
 	    
 	    String expectedId = ids.get(expectedRecordNr - 1);
 	    
+	    DetailsHelper.HeaderInfo info = detailsHelper.getRecordNr(headingLabel, headingSummary);
 	    
+	    assertEquals(expectedId, info.recordNr);    
 	}
 	
 	@When("^I click on row (first|last) in the grid$")
-	public void i_click_on_row_last_in_the_grid() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	public void i_click_on_row_last_in_the_grid(String firstlast) throws Throwable {
+		
+		if (firstlast.equals(FIRST)) {
+			gridHelper.clickOnRow(1);
+			context.setRowClickedOn(1);
+		}
+		else {
+		    int totalNrOfPages = gridHelper.getNrOfPages();
+		    gridHelper.goToPage(totalNrOfPages);
+		    context.setRowClickedOn(ids.size());
+		    
+		    int nrOfRows = gridHelper.getNrOfRowsOnPage();
+		    gridHelper.clickOnRow(nrOfRows);
+		}
 	}
 }

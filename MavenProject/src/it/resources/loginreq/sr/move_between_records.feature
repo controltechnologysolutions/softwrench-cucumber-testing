@@ -7,11 +7,11 @@ Clicking on the down buttom brings up the next record in the grid.
     And I remember the order of records in the grid
     When I click on row <row> in the grid
     Then the '<updown>' button should be '<endisabled>'
-    Then I click on the '<downup>' button
+    Then I click on the arrow '<downup>' button
     Then I should see the '<nextprevious>' record 
     
   Examples:
   	| row	 | updown  | endisabled | downup | nextprevious |
     | 1      | up      | disabled   | down   | previous			|
- #   | 4      | up	   | enabled    | up     | next     |
- #   | last   | down    | disabled   | up     | next     |
+    | 4      | up	   | enabled    | up     | next     |
+    | last   | down    | disabled   | up     | next     |
