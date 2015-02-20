@@ -2,26 +2,33 @@ package net.softwrench.features.sr.general;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import net.softwrench.NavigationHelper;
-import net.softwrench.features.SpinnerDonePredicate;
-import net.softwrench.features.helpers.DetailsHelper;
+import net.softwrench.features.exceptions.UnexpectedErrorMessageException;
+import net.softwrench.features.helpers.ErrorMessage;
+import net.softwrench.features.helpers.MessageDetector;
 import net.softwrench.features.helpers.Reporter;
+import net.softwrench.features.selenium.SpinnerDonePredicate;
 import net.softwrench.features.sr.contexts.SRDetailStepContext;
+import net.softwrench.jira.ResultProvider;
 import net.softwrench.util.Constants;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.paulhammant.ngwebdriver.WaitForAngularRequestsToFinish;
 
 import cucumber.api.PendingException;
+import cucumber.api.Scenario;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -35,6 +42,9 @@ public class SRGeneralSteps {
 	private NavigationHelper navHelper;
 	
 	@Autowired
+	private MessageDetector msgDetector;
+	
+	@Autowired
 	private SRDetailStepContext context;
 	
 	@Autowired
@@ -42,12 +52,24 @@ public class SRGeneralSteps {
 	
 	private static final Logger logger = Logger.getLogger(SRGeneralSteps.class);
 	
+	private Scenario scenario;
+	
+	@Before
+	public void init(Scenario scenario) {
+		this.scenario = scenario;
+	}
+	
 	
 	@Given("^I am on the service request grid$")
-	public void i_am_on_the_service_request_grid() throws Throwable {
-		
+	public void i_am_on_the_service_request_grid() throws Throwable {	
 		navHelper.makeSureImLoggedIn(driver);
 		navHelper.goToSRGrid(driver);
+		
+		ErrorMessage msg = msgDetector.detectErrorMessage();
+		if (msg != null) {
+			ResultProvider.INSTANCE.addTestInfo(scenario, "On the Service Request Grid, the followwing error was shown: " + msg.getTitle(), msg.getStacktrace(), Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
+			throw new UnexpectedErrorMessageException(msg.getTitle());
+		}
 	}
 	
 	@When("^I click on row (\\d+) in the grid$")
@@ -67,6 +89,12 @@ public class SRGeneralSteps {
 		}
 		else
 			throw new PendingException("No data row " + rownumber + ".");
+		
+		ErrorMessage msg = msgDetector.detectErrorMessage();
+		if (msg != null) {
+			ResultProvider.INSTANCE.addTestInfo(scenario, "On the Service Request Grid, the followwing error was shown: " + msg.getTitle(), msg.getStacktrace(), Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
+			throw new UnexpectedErrorMessageException(msg.getTitle());
+		}
 	}
 	
 	@Then("^I should see a '(\\w+)' message$")

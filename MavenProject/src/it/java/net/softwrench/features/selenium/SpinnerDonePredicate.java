@@ -1,4 +1,4 @@
-package net.softwrench.features;
+package net.softwrench.features.selenium;
 
 import java.util.List;
 
