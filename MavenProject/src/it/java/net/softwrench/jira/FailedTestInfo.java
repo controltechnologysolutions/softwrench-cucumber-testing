@@ -1,6 +1,7 @@
 package net.softwrench.jira;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class FailedTestInfo {
@@ -42,5 +43,15 @@ public class FailedTestInfo {
 				+ stacktrace + "]";
 	}
 	
+	public String getText() {
+		return message.toString();
+	}
 	
+	public List<byte[]> getImages() {
+		return Collections.unmodifiableList(images);
+	}
+	
+	public String getStacktrace() {
+		return stacktrace.toString();
+	}
 }

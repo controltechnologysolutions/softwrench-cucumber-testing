@@ -1,4 +1,4 @@
-@sr @create @medium
+@sr @create @medium @inprg
 Feature: Upload an attachment to SR
   As a user,
   I want to be able to upload an attachment to service requests.
@@ -14,11 +14,11 @@ Feature: Upload an attachment to SR
     
   Examples:
   	| rownumber | attachment | fields                         | success_error |
-    | 3         | yes        | document                       | success       |
-    | 3         | no         | document                       | error        |
+  #  | 3         | yes        | document                       | success       |
+  #  | 3         | no         | document                       | error        |
     | 6         | yes        | document,docinfo_.description  | success       |
-    | 6         | no         | document,docinfo_.description  | error       |
-    | 15        | yes        | docinfo_.description           | error         |
+  #  | 6         | no         | document,docinfo_.description  | error       |
+  #  | 15        | yes        | docinfo_.description           | error         |
     
   
     

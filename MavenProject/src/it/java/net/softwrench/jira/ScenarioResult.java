@@ -2,6 +2,7 @@ package net.softwrench.jira;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class ScenarioResult {
@@ -11,10 +12,12 @@ public class ScenarioResult {
 	private boolean passed;
 	private Collection<String> tags;
 	private List<FailedTestInfo> failedTests;
+	private String id;
 	
-	public ScenarioResult(String scenarioName, Collection<String> tags) {
+	public ScenarioResult(String scenarioName, Collection<String> tags, String id) {
 		this.scenarioName = scenarioName;
 		this.tags = tags;
+		this.id = id;
 		runs = 0;
 		passed = true;
 		failedTests = new ArrayList<FailedTestInfo>();
@@ -93,5 +96,16 @@ public class ScenarioResult {
 	public void addFailedTest(FailedTestInfo info) {
 		failedTests.add(info);
 	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 	
+	public List<FailedTestInfo> getFailedTestInfos() {
+		return Collections.unmodifiableList(failedTests);
+	}
 }

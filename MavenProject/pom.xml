@@ -81,6 +81,19 @@
 			<version>0.9.1</version>
 			<scope>test</scope>
 		</dependency>
+		
+		 <dependency>
+      		<groupId>org.glassfish</groupId>
+      		<artifactId>javax.json</artifactId>
+     		<version>1.0.4</version>
+   		 </dependency>
+   		 
+   		 <dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.4</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -173,6 +186,13 @@
 								<test.user.username>${test.user.username}</test.user.username>
 								<test.user.password>${test.user.password}</test.user.password>
 								<test.browser>${test.browser}</test.browser>
+								<jira.user>${jira.user}</jira.user>
+								<jira.password>${jira.password}</jira.password>
+								<jira.url>${jira.url}</jira.url>
+								<jira.project>${jira.project}</jira.project>
+								<jira.issueType>${jira.issueType}</jira.issueType>
+								<jira.featureIdField>${jira.featureIdField}</jira.featureIdField>
+								<jira.featureIdFieldLong>${jira.featureIdFieldLong}</jira.featureIdFieldLong>
 							</systemPropertyVariables>
 						</configuration>
 					</plugin>
@@ -242,5 +262,12 @@
 		<test.user.username>swadmin</test.user.username>
 		<test.user.password>sw@dm1n</test.user.password>
 		<test.browser>Firefox</test.browser>
+		<jira.url>https://controltechnologysolutions.atlassian.net/rest/api/2/</jira.url>
+		<jira.user>jenkins</jira.user>
+		<jira.password>CTSJ3nk1nsForJ1ra</jira.password>
+		<jira.project>CTR</jira.project>
+		<jira.issueType>Bug</jira.issueType>
+		<jira.featureIdField>cf[11100]</jira.featureIdField>
+		<jira.featureIdFieldLong>customfield_11100</jira.featureIdFieldLong>
 	</properties>
 </project>

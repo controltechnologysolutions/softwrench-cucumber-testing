@@ -1,4 +1,4 @@
-@grids @sr @inprg
+@grids @sr 
 Feature: Details are shown
   As a user,
   I want to be able to click on a row in the service request grid,
@@ -13,9 +13,9 @@ Feature: Details are shown
   	| rownumber |
     | 1         |
   	| 3         |
- #   | 4         |
- #   | 10        |
- #   | 25        | 
+    | 4         |
+    | 10        |
+    | 25        | 
   
    
     

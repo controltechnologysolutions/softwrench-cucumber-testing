@@ -92,7 +92,7 @@ public class SRGeneralSteps {
 		
 		ErrorMessage msg = msgDetector.detectErrorMessage();
 		if (msg != null) {
-			ResultProvider.INSTANCE.addTestInfo(scenario, "On the Service Request Grid, the followwing error was shown: " + msg.getTitle(), msg.getStacktrace(), Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
+			ResultProvider.INSTANCE.addTestInfo(scenario, "Clicked on row " + rownumber + " in Service Request Grid, the followwing error was shown: " + msg.getTitle(), msg.getStacktrace(), Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
 			throw new UnexpectedErrorMessageException(msg.getTitle());
 		}
 	}
