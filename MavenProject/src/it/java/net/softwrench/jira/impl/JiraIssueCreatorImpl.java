@@ -1,6 +1,10 @@
 package net.softwrench.jira.impl;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -17,7 +21,6 @@ import javax.json.JsonReader;
 import javax.json.JsonValue;
 import javax.json.JsonWriter;
 
-import net.softwrench.features.sr.details.OpenCorrectSRDetailsStepDef;
 import net.softwrench.jira.FailedTestInfo;
 import net.softwrench.jira.JiraIssueCreator;
 import net.softwrench.jira.ScenarioResult;
@@ -36,7 +39,9 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.protocol.HttpClientContext;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -44,13 +49,15 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.stereotype.Component;
 
 @Component
 public class JiraIssueCreatorImpl implements JiraIssueCreator {
 
 	private static final Logger logger = Logger
-			.getLogger(OpenCorrectSRDetailsStepDef.class);
+			.getLogger(JiraIssueCreatorImpl.class);
 	private static final int JIRA_SUCCESS_CODE = 201;
 
 	private String featureIdField;
@@ -92,6 +99,7 @@ public class JiraIssueCreatorImpl implements JiraIssueCreator {
 					e);
 		}
 
+
 		if (existing == 0) {
 
 			String summary = "Test \"" + scenario.getScenarioName()
@@ -132,7 +140,7 @@ public class JiraIssueCreatorImpl implements JiraIssueCreator {
 			} catch (IOException e) {
 				logger.error("Error when creating Jira issue.", e);
 			} catch (Exception e) {
-				logger.error("Exception was thrown: " + e.getMessage());
+				logger.error("Exception was thrown: " + e.getMessage(), e);
 			}
 		}
 	}
@@ -156,30 +164,52 @@ public class JiraIssueCreatorImpl implements JiraIssueCreator {
 					+ response.getStatusLine().getStatusCode());
 		}
 
-		// get create issue key
-		JsonReader json = Json.createReader(response.getEntity().getContent());
-		JsonObject jsonObj = json.readObject();
-		String key = jsonObj.getString("key");
-
-		HttpPost postRequestAttachments = new HttpPost(
-				env.getProperty("jira.url") + "issue/" + key + "/attachments");
-		MultipartEntityBuilder builder = MultipartEntityBuilder.create();
-		for (byte[] image : images) {
-			builder.addBinaryBody("file", image);
+		if (images.size() > 0) {
+			// get create issue key
+			JsonReader json = Json.createReader(response.getEntity().getContent());
+			JsonObject jsonObj = json.readObject();
+			String key = jsonObj.getString("key");
+	
+			for (byte[] image : images) {
+				HttpPost postRequestAttachments = new HttpPost(
+						env.getProperty("jira.url") + "issue/" + key + "/attachments");
+				logger.info("Adding attachments: " + env.getProperty("jira.url") + "issue/" + key + "/attachments");
+				
+				PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+				Resource resource = resolver.getResource("classpath:/tmp/test.file");
+				String tmpFolder;
+				tmpFolder = resource.getFile().getParentFile().getAbsolutePath();
+				File imageFile = new File(tmpFolder + "/screenshot.png");
+				
+				FileOutputStream stream = new FileOutputStream(imageFile);
+				stream.write(image);
+				stream.close();
+				   
+				MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+				
+				FileBody fileBody = new FileBody(imageFile);
+				builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
+				builder.addPart("file", fileBody);
+				
+				HttpEntity entity = builder.build();
+				postRequestAttachments.setEntity(entity);
+				response = executeRequest(httpClient, postRequestAttachments);
+				
+				logger.info("Status Line of attachment: " + response.getStatusLine());
+				logger.info("Status code of attachment: " + response.getStatusLine()
+						.getStatusCode());
+				
+				if (response.getStatusLine().getStatusCode() != JIRA_SUCCESS_CODE) {
+					int code = response.getStatusLine().getStatusCode();
+					httpClient.close();
+					throw new RuntimeException("Failed : HTTP error code : "
+							+ code);
+				}
+			}
 		}
-		HttpEntity entity = builder.build();
-		postRequestAttachments.setEntity(entity);
-		response = executeRequest(httpClient, postRequestAttachments);
 		
-		logger.info("Status Line of attachment: " + response.getStatusLine());
-		logger.info("Status code of attachment: " + response.getStatusLine()
-				.getStatusCode());
-		if (response.getStatusLine().getStatusCode() != JIRA_SUCCESS_CODE) {
-			throw new RuntimeException("Failed : HTTP error code : "
-					+ response.getStatusLine().getStatusCode());
-		}
-
 		httpClient.close();
+		
 	}
 
 	private HttpResponse executeRequest(CloseableHttpClient httpClient,
