@@ -44,7 +44,7 @@ public class ResultProvider {
 	public void evaluateScenario(Scenario sScenario) {
 		ScenarioResult scenario = new ScenarioResult(sScenario.getName(), sScenario.getSourceTagNames(), sScenario.getId());
 		scenario = results.get(results.indexOf(scenario));
-		if (!sScenario.getStatus().equals("passed"))
+		if (sScenario.getStatus().equals("failed"))
 			scenario.setFailed();
 		
 	}

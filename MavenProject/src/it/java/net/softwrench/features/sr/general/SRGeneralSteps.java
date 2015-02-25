@@ -120,7 +120,8 @@ public class SRGeneralSteps {
 		WebElement errorMsg = driver.findElement(By.xpath("//div[@ng-show='hasValidationError']"));	
 		String classes = errorMsg.getAttribute("class");
 		
-		ResultProvider.INSTANCE.addTestInfo(scenario, "There should be an error message, but there is not." , null, Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
+		if (classes.contains("ng-hide"))
+			ResultProvider.INSTANCE.addTestInfo(scenario, "There should be an error message, but there is not." , null, Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
 		assertTrue("There should be an error message, but there is not. Classes are " + classes, !classes.contains("ng-hide"));
 	}
 	
