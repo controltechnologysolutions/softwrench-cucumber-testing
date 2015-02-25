@@ -2,13 +2,11 @@ package net.softwrench.features.sr.general;
 
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import net.softwrench.NavigationHelper;
 import net.softwrench.features.exceptions.UnexpectedErrorMessageException;
-import net.softwrench.features.helpers.ErrorMessage;
+import net.softwrench.features.helpers.GridHelper;
 import net.softwrench.features.helpers.MessageDetector;
 import net.softwrench.features.helpers.Reporter;
 import net.softwrench.features.selenium.SpinnerDonePredicate;
@@ -26,7 +24,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.paulhammant.ngwebdriver.WaitForAngularRequestsToFinish;
 
-import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -42,7 +39,9 @@ public class SRGeneralSteps {
 	private NavigationHelper navHelper;
 	
 	@Autowired
+
 	private MessageDetector msgDetector;
+	private GridHelper gridHelper;
 	
 	@Autowired
 	private SRDetailStepContext context;
@@ -72,19 +71,8 @@ public class SRGeneralSteps {
 	public void i_click_on_a_row_in_the_grid(int rownumber) throws Throwable {
 		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
 		
-		List<WebElement> cells = driver.findElements(By.xpath("//tbody/tr[" + rownumber + "]/td[3]"));
-		if (cells.size() > 0) {
-			WebElement idCell = cells.get(0);
-			// get id of SR
-			context.setSelectedId(idCell.getText());
-			// get title of SR
-			WebElement titleCell = driver.findElement(By.xpath("//tbody/tr[" + rownumber + "]/td[4]"));
-			context.setSelectedTitle(titleCell.getText());
-			
-			idCell.click();
-		}
-		else
-			throw new PendingException("No data row " + rownumber + ".");
+		context.setRowClickedOn(rownumber);
+		gridHelper.clickOnRow(rownumber);
 		
 		msgDetector.checkForErrorMessage("Service Request Record", "Clicked on row " + rownumber + " in Service Request Grid.", scenario);
 	}

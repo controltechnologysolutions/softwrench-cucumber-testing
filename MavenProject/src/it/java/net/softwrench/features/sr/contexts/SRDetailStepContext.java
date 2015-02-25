@@ -9,6 +9,7 @@ public class SRDetailStepContext {
 
 	private String selectedId;
 	private String selectedTitle;
+	private int	rowClickedOn;
 	
 	public String getSelectedId() {
 		return selectedId;
@@ -21,6 +22,12 @@ public class SRDetailStepContext {
 	}
 	public void setSelectedTitle(String selectedTitle) {
 		this.selectedTitle = selectedTitle;
+	}
+	public int getRowClickedOn() {
+		return rowClickedOn;
+	}
+	public void setRowClickedOn(int rowClickedOn) {
+		this.rowClickedOn = rowClickedOn;
 	}
 	
 	
