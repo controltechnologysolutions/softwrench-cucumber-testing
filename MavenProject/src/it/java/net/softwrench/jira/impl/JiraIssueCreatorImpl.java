@@ -1,10 +1,8 @@
 package net.softwrench.jira.impl;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -53,12 +51,15 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.stereotype.Component;
 
+
 @Component
 public class JiraIssueCreatorImpl implements JiraIssueCreator {
 
 	private static final Logger logger = Logger
 			.getLogger(JiraIssueCreatorImpl.class);
+	
 	private static final int JIRA_SUCCESS_CODE = 201;
+	private static final int JIRA_SUCCESS_CODE_ATTACHMENTS = 200;
 
 	private String featureIdField;
 	private String featureIdFieldLong;
@@ -133,7 +134,7 @@ public class JiraIssueCreatorImpl implements JiraIssueCreator {
 
 			logger.info("Creating JIRA issue: " + summary);
 			try {
-				makeHttpPostRequest(jsonPayLoad, images);
+				makeHttpPostRequest(jsonPayLoad, images, scenario.getScenarioName());
 
 			} catch (MalformedURLException e) {
 				logger.error("Error when creating Jira issue.", e);
@@ -145,9 +146,11 @@ public class JiraIssueCreatorImpl implements JiraIssueCreator {
 		}
 	}
 
-	private void makeHttpPostRequest(String jsonPayLoad, List<byte[]> images)
+	private void makeHttpPostRequest(String jsonPayLoad, List<byte[]> images, String feature)
 			throws ClientProtocolException, IOException, Exception {
 		CloseableHttpClient httpClient = createHttpClient();
+		
+		
 
 		HttpPost postRequest = new HttpPost(env.getProperty("jira.url")
 				+ "issue/");
@@ -164,7 +167,10 @@ public class JiraIssueCreatorImpl implements JiraIssueCreator {
 					+ response.getStatusLine().getStatusCode());
 		}
 
+		int imageIdx = 0;
 		if (images.size() > 0) {
+			imageIdx++;
+			
 			// get create issue key
 			JsonReader json = Json.createReader(response.getEntity().getContent());
 			JsonObject jsonObj = json.readObject();
@@ -173,33 +179,39 @@ public class JiraIssueCreatorImpl implements JiraIssueCreator {
 			for (byte[] image : images) {
 				HttpPost postRequestAttachments = new HttpPost(
 						env.getProperty("jira.url") + "issue/" + key + "/attachments");
+				postRequestAttachments.setHeader("X-Atlassian-Token", "nocheck");
 				logger.info("Adding attachments: " + env.getProperty("jira.url") + "issue/" + key + "/attachments");
 				
+				// save screenshot
 				PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-				Resource resource = resolver.getResource("classpath:/tmp/test.file");
+				Resource resource = resolver.getResource("classpath:/tmp/anchor.txt");
 				String tmpFolder;
 				tmpFolder = resource.getFile().getParentFile().getAbsolutePath();
-				File imageFile = new File(tmpFolder + "/screenshot.png");
+				File imageFile = new File(tmpFolder + "/screenshot-" + feature.replace(" ", "-") + "-" + imageIdx + ".png");
+				if (!imageFile.exists())
+					imageFile.createNewFile();
 				
 				FileOutputStream stream = new FileOutputStream(imageFile);
 				stream.write(image);
 				stream.close();
 				   
+				// create message
 				MultipartEntityBuilder builder = MultipartEntityBuilder.create();
 				
 				FileBody fileBody = new FileBody(imageFile);
-				builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
 				builder.addPart("file", fileBody);
 				
 				HttpEntity entity = builder.build();
 				postRequestAttachments.setEntity(entity);
+				
+				// submit
 				response = executeRequest(httpClient, postRequestAttachments);
 				
 				logger.info("Status Line of attachment: " + response.getStatusLine());
 				logger.info("Status code of attachment: " + response.getStatusLine()
 						.getStatusCode());
 				
-				if (response.getStatusLine().getStatusCode() != JIRA_SUCCESS_CODE) {
+				if (response.getStatusLine().getStatusCode() != JIRA_SUCCESS_CODE_ATTACHMENTS) {
 					int code = response.getStatusLine().getStatusCode();
 					httpClient.close();
 					throw new RuntimeException("Failed : HTTP error code : "
@@ -238,6 +250,7 @@ public class JiraIssueCreatorImpl implements JiraIssueCreator {
 		CloseableHttpClient httpClient = HttpClientBuilder.create()
 				.setDefaultCredentialsProvider(credentialsProvider).build();
 		return httpClient;
+		
 	}
 
 	private int queryForScenario(String featureid)

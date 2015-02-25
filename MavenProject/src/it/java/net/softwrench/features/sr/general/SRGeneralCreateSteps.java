@@ -102,8 +102,8 @@ public class SRGeneralCreateSteps {
 		
 	}
 	
-	@When("^I fill in the '(.+?)' and submit$")
-	public void i_fill_in_the_summary_field_with_Cucumber_Test_date_and_the_description_with_Who_loves_cucumbers(String fields) throws Throwable {
+	@When("^I fill in the '(.+?)' with labels '(.+?)' and submit$")
+	public void i_fill_in_the_summary_field_with_Cucumber_Test_date_and_the_description_with_Who_loves_cucumbers(String fields, String fieldLabels) throws Throwable {
 		List<String> fieldNames = Arrays.asList(fields.split(","));
 		
 		List<WebElement> repeatedElements = angularHelper.getRepeatedElements(creationContext.getNewItemComposition(), "fieldMetadata in nonTabFields(displayables)");
@@ -127,7 +127,7 @@ public class SRGeneralCreateSteps {
 		}
 		
 		if (fieldNames.size() != fieldCounter) {
-			ResultProvider.INSTANCE.addTestInfo(scenario, "Could not fill all specified fields. Expected " + fieldNames.size() + " fields but found " + fieldCounter + ".", null, Lists.newArrayList(driver.getScreenshotAs(OutputType.BYTES)));
+			ResultProvider.INSTANCE.addTestInfo(scenario, "Could not fill all specified fields. Expected " + fieldLabels + " (" + fieldNames.size() + " fields) but found " + fieldCounter + ".", null, Lists.newArrayList(driver.getScreenshotAs(OutputType.BYTES)));
 		}
 		assertTrue("Could not fill all specified fields. Expected " + fieldNames.size() + " fields but found " + fieldCounter + ".", fieldNames.size() == fieldCounter);
 		
