@@ -1,4 +1,4 @@
-@sr @create @medium
+@sr @create @medium @inprg
 Feature: I can create a new SR given all required fields are filled
   As a user,
   I want to be able to create a new record.

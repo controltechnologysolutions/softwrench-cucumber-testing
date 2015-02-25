@@ -61,15 +61,11 @@ public class SRGeneralSteps {
 	
 	
 	@Given("^I am on the service request grid$")
-	public void i_am_on_the_service_request_grid() throws Throwable {	
+	public void i_am_on_the_service_request_grid() throws UnexpectedErrorMessageException {	
 		navHelper.makeSureImLoggedIn(driver);
 		navHelper.goToSRGrid(driver);
 		
-		ErrorMessage msg = msgDetector.detectErrorMessage();
-		if (msg != null) {
-			ResultProvider.INSTANCE.addTestInfo(scenario, "On the Service Request Grid, the followwing error was shown: " + msg.getTitle(), msg.getStacktrace(), Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
-			throw new UnexpectedErrorMessageException(msg.getTitle());
-		}
+		msgDetector.checkForErrorMessage("Service Request Grid", "Clicked on the Service Request Grid Menu Entry.", scenario);
 	}
 	
 	@When("^I click on row (\\d+) in the grid$")
@@ -90,11 +86,7 @@ public class SRGeneralSteps {
 		else
 			throw new PendingException("No data row " + rownumber + ".");
 		
-		ErrorMessage msg = msgDetector.detectErrorMessage();
-		if (msg != null) {
-			ResultProvider.INSTANCE.addTestInfo(scenario, "Clicked on row " + rownumber + " in Service Request Grid, the followwing error was shown: " + msg.getTitle(), msg.getStacktrace(), Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
-			throw new UnexpectedErrorMessageException(msg.getTitle());
-		}
+		msgDetector.checkForErrorMessage("Service Request Record", "Clicked on row " + rownumber + " in Service Request Grid.", scenario);
 	}
 	
 	@Then("^I should see a '(\\w+)' message$")
@@ -113,6 +105,9 @@ public class SRGeneralSteps {
 
 				logger.info("Message in success message box: " + successMsg.getText());
 				logger.info("Message in success message list: " + successList.getText());
+				
+				if (!successMsg.isDisplayed() && !successList.isDisplayed())
+					ResultProvider.INSTANCE.addTestInfo(scenario, "There is no success message displayed." , null, Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
 				assertTrue("Success Message is not displayed.", successMsg.isDisplayed() || successList.isDisplayed());
 			} catch(Exception e) {
 				logger.error("Exception when checking for success message", e);
@@ -124,6 +119,8 @@ public class SRGeneralSteps {
 		
 		WebElement errorMsg = driver.findElement(By.xpath("//div[@ng-show='hasValidationError']"));	
 		String classes = errorMsg.getAttribute("class");
+		
+		ResultProvider.INSTANCE.addTestInfo(scenario, "There should be an error message, but there is not." , null, Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
 		assertTrue("There should be an error message, but there is not. Classes are " + classes, !classes.contains("ng-hide"));
 	}
 	

@@ -1,10 +1,15 @@
 package net.softwrench.features.helpers.impl;
 
+import java.util.Arrays;
+
+import net.softwrench.features.exceptions.UnexpectedErrorMessageException;
 import net.softwrench.features.helpers.ErrorMessage;
 import net.softwrench.features.helpers.MessageDetector;
 import net.softwrench.features.helpers.Reporter;
+import net.softwrench.jira.ResultProvider;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +17,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.paulhammant.ngwebdriver.WaitForAngularRequestsToFinish;
+
+import cucumber.api.Scenario;
 
 /**
  * This class helps with detecting/finding displayed message boxes.
@@ -57,6 +64,21 @@ public class MessageDetectorImpl implements MessageDetector {
 		}
 		
 		return null;
+	}
+	
+	@Override
+	public void checkForErrorMessage(String page, String steps, Scenario scenario) throws UnexpectedErrorMessageException {
+		ErrorMessage msg = detectErrorMessage();
+		if (msg != null) {
+			StringBuffer msgBuffer = new StringBuffer();
+			msgBuffer.append("On the page \"" + page + "\", the followwing error was shown: " + msg.getTitle());
+			msgBuffer.append("\n");
+			if (steps != null) {
+				msgBuffer.append(steps);
+			}
+			ResultProvider.INSTANCE.addTestInfo(scenario, msgBuffer.toString() , msg.getStacktrace(), Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
+			throw new UnexpectedErrorMessageException(msg.getTitle());
+		}
 	}
 
 }

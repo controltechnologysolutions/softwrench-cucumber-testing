@@ -1,6 +1,7 @@
 package net.softwrench.jira;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -11,11 +12,14 @@ public class GlobalHooks {
     
     @Autowired
     private JiraIssueCreator creator;
+    
+    @Autowired
+	private Environment env;
 
     @Before
     public void beforeAll(Scenario scenario) {
         if(!dunit) {
-            Runtime.getRuntime().addShutdownHook(new JiraThread(creator));
+            Runtime.getRuntime().addShutdownHook(new JiraThread(creator, env.getProperty("jira.createIssues")));
             // do the beforeAll stuff...
             dunit = true;
         }

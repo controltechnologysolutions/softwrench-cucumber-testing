@@ -1,4 +1,4 @@
-@sr @create @medium @inprg
+@sr @create @medium
 Feature: Upload an attachment to SR
   As a user,
   I want to be able to upload an attachment to service requests.

@@ -1,5 +1,8 @@
 package net.softwrench.features.helpers;
 
+import net.softwrench.features.exceptions.UnexpectedErrorMessageException;
+import cucumber.api.Scenario;
+
 public interface MessageDetector {
 
 	/**
@@ -7,5 +10,8 @@ public interface MessageDetector {
 	 * @return
 	 */
 	public abstract ErrorMessage detectErrorMessage();
+
+	public abstract void checkForErrorMessage(String page, String steps, Scenario scenario)
+			throws UnexpectedErrorMessageException;
 
 }

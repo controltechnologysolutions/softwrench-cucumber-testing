@@ -243,6 +243,7 @@
 								<jira.issueType>${jira.issueType}</jira.issueType>
 								<jira.featureIdField>${jira.featureIdField}</jira.featureIdField>
 								<jira.featureIdFieldLong>${jira.featureIdFieldLong}</jira.featureIdFieldLong>
+								<jira.createIssues>${jira.createIssues}</jira.createIssues>
 							</systemPropertyVariables>
 						</configuration>
 					</plugin>
@@ -319,5 +320,7 @@
 		<jira.issueType>Bug</jira.issueType>
 		<jira.featureIdField>cf[11100]</jira.featureIdField>
 		<jira.featureIdFieldLong>customfield_11100</jira.featureIdFieldLong>
+		<!-- create Jira tickets for failed scenarios yes/no -->
+		<jira.createIssues>no</jira.createIssues>
 	</properties>
 </project>
