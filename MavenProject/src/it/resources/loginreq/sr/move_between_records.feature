@@ -1,4 +1,4 @@
-@sr @medium @inprg
+@sr @medium
 Feature: Clicking on the up button in an SR records brings up the previous record. 
 Clicking on the down buttom brings up the next record in the grid.
  
