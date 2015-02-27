@@ -93,11 +93,6 @@ public class CreateWorklogStepDef {
 		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
 	}
 
-	@Given("^I click on the worklog tab$")
-	public void i_click_on_the_worklog_tab() throws NoSuchElementException {
-		detailsHelper.clickOnTab("worklog_");
-	}
-
 	@When("^I click on the SR worklog button$")
 	public void i_click_on_the_SR_worklog_button() throws ElementNotShownException {
 		try {

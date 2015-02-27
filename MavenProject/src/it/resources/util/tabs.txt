@@ -28,3 +28,17 @@ Work log attributes:
 Attribute: description
 Attribute: longdescription_.ldtext
 Attribute: worklogid
+
+
+SR communication:
+-----------------
+commlogid
+createdate
+orgobject
+sendto
+cc
+sendfrom
+subject
+message
+attachment
+commloguid

@@ -2,10 +2,17 @@ package net.softwrench.features.sr.general;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Properties;
+
+import javax.annotation.Resource;
 
 import net.softwrench.NavigationHelper;
 import net.softwrench.features.SpinnerDonePredicate;
+import net.softwrench.features.exceptions.NoSuchElementException;
 import net.softwrench.features.helpers.DetailsHelper;
 import net.softwrench.features.helpers.Reporter;
 import net.softwrench.features.sr.contexts.SRDetailStepContext;
@@ -15,13 +22,13 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.paulhammant.ngwebdriver.WaitForAngularRequestsToFinish;
 
 import cucumber.api.PendingException;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -38,10 +45,24 @@ public class SRGeneralSteps {
 	private SRDetailStepContext context;
 	
 	@Autowired
+	private DetailsHelper detailsHelper;
+	
+	@Resource(name="tabsProperties")
+	private Properties tabsProperties;
+	
+	@Autowired
 	private Reporter reporter;
 	
 	private static final Logger logger = Logger.getLogger(SRGeneralSteps.class);
+	private Map<String, String> tabNames;
 	
+	@Before
+	public void init() {
+		tabNames = new HashMap<String, String>();
+		for (Entry<Object, Object> entry : tabsProperties.entrySet()) {
+			tabNames.put(entry.getKey().toString(), entry.getValue().toString());
+		}
+	}
 	
 	@Given("^I am on the service request grid$")
 	public void i_am_on_the_service_request_grid() throws Throwable {
@@ -99,4 +120,8 @@ public class SRGeneralSteps {
 		assertTrue("There should be an error message, but there is not. Classes are " + classes, !classes.contains("ng-hide"));
 	}
 	
+	@Given("^I click on the '(\\w+?)' tab$")
+	public void i_click_on_the_worklog_tab(String tab) throws NoSuchElementException {
+		detailsHelper.clickOnTab(tabNames.get(tab));
+	}
 }

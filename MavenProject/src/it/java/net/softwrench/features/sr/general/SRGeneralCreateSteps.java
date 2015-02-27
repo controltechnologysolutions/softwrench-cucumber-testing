@@ -24,6 +24,7 @@ import com.paulhammant.ngwebdriver.AngularModelAccessor;
 import com.paulhammant.ngwebdriver.ByAngular;
 import com.paulhammant.ngwebdriver.WaitForAngularRequestsToFinish;
 
+import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.When;
@@ -117,6 +118,40 @@ public class SRGeneralCreateSteps {
 				if (inputElement == null)
 					throw new NoSuchElementException("Could not find input element for attribute: " + attribute + ".");
 				inputElement.sendKeys("Cucumber " + attribute.toUpperCase() + " " + new Date());
+				fieldCounter++;
+			}
+		}
+		assertTrue("Could not fill all specified fields. Expected " + fieldNames.size() + " fields but found " + fieldCounter + ".", fieldNames.size() == fieldCounter);
+		
+		WebElement submitBtn = detailsHelper.findButton(creationContext.getNewItemComposition(), "save");
+		if (submitBtn == null || !submitBtn.isDisplayed())
+			throw new ElementNotShownException("Submit button is not displayed.");
+		
+		submitBtn.findElement(By.tagName("i")).click();
+	}
+	
+	@When("^I fill in the following new item fields '(.+?)' with '(.+?)' and submit$")
+	public void i_fill_in_the_following_new_item_fields_with_values_and_submit(String fields, String values) throws Throwable {
+		List<String> fieldNames = Arrays.asList(fields.split(","));
+		List<String> fieldValues = Arrays.asList(values.split(","));
+		
+		List<WebElement> repeatedElements = angularHelper.getRepeatedElements(creationContext.getNewItemComposition(), "fieldMetadata in nonTabFields(displayables)");
+	   
+		int fieldCounter = 0;
+		AngularModelAccessor ngModel = new AngularModelAccessor(driver);
+		for (WebElement element : repeatedElements) {
+			String attribute = ngModel.retrieveAsString(element, "fieldMetadata.attribute");
+			if (fieldNames.contains(attribute)) {
+				int fieldIdx = fieldNames.indexOf(attribute);
+				WebElement inputElement = null;
+				if (!element.findElements(By.tagName("input")).isEmpty())
+					inputElement = element.findElement(By.tagName("input"));
+				else if (!element.findElements(By.tagName("textarea")).isEmpty())
+					inputElement = element.findElement(By.tagName("textarea"));
+				
+				if (inputElement == null)
+					throw new NoSuchElementException("Could not find input element for attribute: " + attribute + ".");
+				inputElement.sendKeys(fieldValues.get(fieldIdx));
 				fieldCounter++;
 			}
 		}

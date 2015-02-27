@@ -87,7 +87,7 @@ public class DetailsHelperImpl implements DetailsHelper {
 		WebElement tab = findTab(tabid);
 	    
 	    if (tab == null)
-	    	throw new NoSuchElementException("Can't find tab worklog_.");
+	    	throw new NoSuchElementException("Can't find tab " + tabid);
 	    
 	    tab.findElement(By.tagName("a")).click();
 	}
