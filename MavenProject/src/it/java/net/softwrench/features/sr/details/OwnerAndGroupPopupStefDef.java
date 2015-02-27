@@ -8,11 +8,14 @@ import java.util.Arrays;
 import java.util.List;
 
 import net.softwrench.features.helpers.AngularHelper;
+import net.softwrench.features.helpers.MessageDetector;
 import net.softwrench.features.helpers.Reporter;
 import net.softwrench.features.sr.contexts.DialogSelection;
+import net.softwrench.jira.ResultProvider;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,16 +40,21 @@ public class OwnerAndGroupPopupStefDef {
 	private AngularHelper angularHelper;
 	
 	@Autowired
+	private MessageDetector msgDetector;
+	
+	@Autowired
 	private Reporter reporter;
 	
 	private static final Logger logger = Logger.getLogger(OwnerAndGroupPopupStefDef.class);
 	
 	private ByAngular byAngular;
 	private WebElement lookupModel;
+	private Scenario scenario;
 	
 	@Before
 	public void init(Scenario scenario) {
 		byAngular = new ByAngular(driver);
+		this.scenario = scenario;
 	}
 
 
@@ -65,6 +73,7 @@ public class OwnerAndGroupPopupStefDef {
 					lookupModel = elem;
 			}
 			
+			msgDetector.checkForErrorMessage("New Service Request", null, scenario);
 			assertTrue("Lookup Dialog is not displayed.",  lookupModel != null);
 		}
 		
@@ -81,8 +90,8 @@ public class OwnerAndGroupPopupStefDef {
 		
 		lookupModel.findElement(By.xpath(".//input[@ng-model='" + column + "']")).sendKeys(filterstring);
 		lookupModel.findElement(By.xpath(".//span[@ng-click='lookupModalSearch()']")).click();;
-		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
-		
+
+		msgDetector.checkForErrorMessage("New SR", "I opened the lookup for owner/owner group and filtered column " + column + " by " + filterstring, scenario);
 	}
 
 	@Then("^I click on the (\\d+) result$")
@@ -108,6 +117,9 @@ public class OwnerAndGroupPopupStefDef {
 			for (WebElement dialog : dialogs) {
 				if (dialog.isDisplayed()) {
 					WebElement body = dialog.findElement(By.className("modal-body"));
+					
+					if (msg.trim().equals(body.getText().trim()))
+						ResultProvider.INSTANCE.addTestInfo(scenario, "The alert message is incorrect. Expected " + msg + ", but found " + body.getText().trim(), null, Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
 					assertEquals(msg.trim(), body.getText().trim());
 					
 					dialog.findElement(By.tagName("button")).click();
@@ -115,7 +127,7 @@ public class OwnerAndGroupPopupStefDef {
 				}
 			}			
 		}
-		
+		ResultProvider.INSTANCE.addTestInfo(scenario, "There is no alert showing after I selected an owner/ownergroup.", null, Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
 		fail("There is no alert dialog shown.");
 		
 	}
@@ -137,10 +149,16 @@ public class OwnerAndGroupPopupStefDef {
 				for (WebElement input : inputs) {
 					if (input.isDisplayed()) {
 						logger.info("input " + input.getAttribute("ng-model") + " has value " + input.getAttribute("value"));
-						if (input.getAttribute("ng-model").equals("lookupAssociationsCode[fieldMetadata.attribute]"))
+						if (input.getAttribute("ng-model").equals("lookupAssociationsCode[fieldMetadata.attribute]")) {
+							if (!selection.getColumnA().equals(input.getAttribute("value")))
+								ResultProvider.INSTANCE.addTestInfo(scenario, "Lookup Code is expected to be \"" + selection.getColumnA() + "\" but is \"" + input.getAttribute("value") + "\"", null, Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
 							assertEquals(selection.getColumnA(), input.getAttribute("value"));
-						if (input.getAttribute("ng-model").equals("lookupAssociationsDescription[fieldMetadata.attribute]"))
+						}
+						if (input.getAttribute("ng-model").equals("lookupAssociationsDescription[fieldMetadata.attribute]")) {
+							if (!selection.getColumnB().equals(input.getAttribute("value")))
+								ResultProvider.INSTANCE.addTestInfo(scenario, "Lookup Description is expected to be \"" + selection.getColumnB() + "\" but is \"" + input.getAttribute("value") + "\"", null, Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
 							assertEquals(selection.getColumnB(), input.getAttribute("value"));
+						}
 					}
 				}
 			}
@@ -157,8 +175,10 @@ public class OwnerAndGroupPopupStefDef {
 		
 		if (inputs != null) {
 			for (WebElement input : inputs) {
-				if (input.isEnabled() && !input.getAttribute("type").equals("hidden"))
+				if (input.isEnabled() && !input.getAttribute("type").equals("hidden")) {
+					ResultProvider.INSTANCE.addTestInfo(scenario, "Input field for " + field + " should be disabled.", null, Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
 					fail("Input field for " + field + " should be disabled.");
+				}
 			}
 		}
 	}

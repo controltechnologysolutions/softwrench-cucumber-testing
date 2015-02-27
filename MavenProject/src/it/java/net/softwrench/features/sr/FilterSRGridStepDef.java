@@ -11,6 +11,7 @@ import java.util.Map;
 import net.softwrench.features.filters.FilterService;
 import net.softwrench.features.helpers.AngularHelper;
 import net.softwrench.features.helpers.FilterHelper;
+import net.softwrench.features.helpers.GridHelper;
 import net.softwrench.features.helpers.Reporter;
 import net.softwrench.features.sr.util.SearchResults;
 
@@ -39,6 +40,9 @@ public class FilterSRGridStepDef {
 	
 	@Autowired
 	private FilterService filterService;
+	
+	@Autowired
+	private GridHelper gridHelper;
 	
 	@Autowired
 	private Reporter reporter;
@@ -86,38 +90,8 @@ public class FilterSRGridStepDef {
 			if (filtername == null)
 				fail("Can't retrieve filtername.");
 			
-			resultsPerFilter.put(filtername, new SearchResults(getShownTotelItemsNr(), getResults(columnnr)));
+			resultsPerFilter.put(filtername, new SearchResults(getShownTotelItemsNr(), gridHelper.getResults(columnnr)));
 		}
-	}
-	
-	private List<String> getResults(int column) {
-		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
-		WebElement grid = driver.findElement(By.id("listgrid"));
-		WebElement tbody = grid.findElement(By.tagName("tbody"));
-		
-		WebElement paginationHeader = driver.findElement(By.id("affixpagination"));
-		WebElement currentPageElement = paginationHeader.findElement(By.xpath(".//input[@ng-model='paginationData.pageNumber']"));
-		WebElement ofLabel = currentPageElement.findElement(By.xpath(".//following-sibling::label[1]"));
-		
-		int totalPages = new Integer(ofLabel.getText().substring(ofTotalLabel.length()).trim());
-		List<String> results = new ArrayList<String>();
-		// iterate over all pages
-		for (int page = 1; page <= totalPages; page++) {
-			WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
-			
-			// go through all results on the page
-			List<WebElement> rows = tbody.findElements(By.tagName("tr"));
-			
-			for (WebElement row : rows) {
-				List<WebElement> cells = angularHelper.applyFilter(row.findElements(By.tagName("td")), we -> we.isDisplayed());
-				WebElement cell = cells.get(column - 1);
-				
-				results.add(cell.getText());
-			}
-			
-			paginationHeader.findElement(By.xpath(".//a[@ng-click='nextPage()']")).click();
-		}
-		return results;
 	}
 	
 	private int getShownTotelItemsNr() {
