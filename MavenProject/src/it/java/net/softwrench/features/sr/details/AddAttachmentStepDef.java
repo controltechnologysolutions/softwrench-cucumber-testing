@@ -3,6 +3,8 @@ package net.softwrench.features.sr.details;
 import java.io.File;
 
 import net.softwrench.features.helpers.DetailsHelper;
+import net.softwrench.features.helpers.ErrorMessage;
+import net.softwrench.features.helpers.MessageDetector;
 import net.softwrench.util.Constants;
 
 import org.apache.commons.lang3.RandomUtils;
@@ -13,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
+import cucumber.api.Scenario;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 
@@ -23,10 +27,25 @@ public class AddAttachmentStepDef {
 	
 	@Autowired
 	private RemoteWebDriver driver;
+	
+	@Autowired
+	private MessageDetector msgDetector;
+	
+	private Scenario scenario;
+	
+	@Before
+	public void init(Scenario scenario) {
+		this.scenario = scenario;
+	}
 
 	@Given("^I click on the attachment tab$")
 	public void i_click_on_the_attachment_tab() throws Throwable {
+		ErrorMessage msg = msgDetector.detectErrorMessage();
 		detailsHelper.clickOnTab("attachment_");
+		ErrorMessage msg2 = msgDetector.detectErrorMessage();
+		
+		if ((msg == null && msg2 != null) || (msg2 != null && !msg.getTitle().equals(msg2.getTitle())))
+			msgDetector.checkForErrorMessage("SR record", "I clicked on the attachment tab.", scenario);
 	}
 
 	@When("^I click on the add attachment button$")

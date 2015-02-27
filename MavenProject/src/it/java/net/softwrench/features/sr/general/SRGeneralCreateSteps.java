@@ -14,12 +14,15 @@ import net.softwrench.features.helpers.AngularHelper;
 import net.softwrench.features.helpers.DetailsHelper;
 import net.softwrench.features.helpers.Reporter;
 import net.softwrench.features.sr.contexts.CreationContext;
+import net.softwrench.jira.ResultProvider;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.google.common.collect.Lists;
 import com.paulhammant.ngwebdriver.AngularModelAccessor;
 import com.paulhammant.ngwebdriver.ByAngular;
 import com.paulhammant.ngwebdriver.WaitForAngularRequestsToFinish;
@@ -46,10 +49,12 @@ public class SRGeneralCreateSteps {
 	private CreationContext creationContext;
 	
 	private ByAngular byAngular;
+	private Scenario scenario;
 	
 	@Before
 	public void init(Scenario scenario) {
 		byAngular = new ByAngular(driver);
+		this.scenario = scenario;
 	}
 
 	@When("^I fill in the following fields '(\\w+)' with '(.+)' and submit$")
@@ -97,8 +102,8 @@ public class SRGeneralCreateSteps {
 		
 	}
 	
-	@When("^I fill in the '(.+?)' and submit$")
-	public void i_fill_in_the_summary_field_with_Cucumber_Test_date_and_the_description_with_Who_loves_cucumbers(String fields) throws Throwable {
+	@When("^I fill in the '(.+?)' with labels '(.+?)' and submit$")
+	public void i_fill_in_the_summary_field_with_Cucumber_Test_date_and_the_description_with_Who_loves_cucumbers(String fields, String fieldLabels) throws Throwable {
 		List<String> fieldNames = Arrays.asList(fields.split(","));
 		
 		List<WebElement> repeatedElements = angularHelper.getRepeatedElements(creationContext.getNewItemComposition(), "fieldMetadata in nonTabFields(displayables)");
@@ -119,6 +124,10 @@ public class SRGeneralCreateSteps {
 				inputElement.sendKeys("Cucumber " + attribute.toUpperCase() + " " + new Date());
 				fieldCounter++;
 			}
+		}
+		
+		if (fieldNames.size() != fieldCounter) {
+			ResultProvider.INSTANCE.addTestInfo(scenario, "Could not fill all specified fields. Expected " + fieldLabels + " (" + fieldNames.size() + " fields) but found " + fieldCounter + ".", null, Lists.newArrayList(driver.getScreenshotAs(OutputType.BYTES)));
 		}
 		assertTrue("Could not fill all specified fields. Expected " + fieldNames.size() + " fields but found " + fieldCounter + ".", fieldNames.size() == fieldCounter);
 		
