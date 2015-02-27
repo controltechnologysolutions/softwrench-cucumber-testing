@@ -42,7 +42,7 @@ public class MessageDetectorImpl implements MessageDetector {
 	public ErrorMessage detectErrorMessage() {
 		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
 		
-		WebElement errorMsg = driver.findElement(By.xpath("//div[@ng-show='$root.hasErrorDetail']"));	
+		WebElement errorMsg = driver.findElement(By.id("diverrormessagedetail"));	
 		
 		if (errorMsg.isDisplayed()) {		
 			String title = errorMsg.findElement(By.tagName("span")).getText();
