@@ -48,8 +48,9 @@ public class SRGeneralSteps {
 	private NavigationHelper navHelper;
 	
 	@Autowired
-
 	private MessageDetector msgDetector;
+	
+	@Autowired
 	private GridHelper gridHelper;
 	
 	@Autowired

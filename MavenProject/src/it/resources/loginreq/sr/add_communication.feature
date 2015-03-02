@@ -16,7 +16,7 @@ Feature: I can create a new communication given all required fields are filled
     
  Examples:
   	| rownumber | fields               | values | success_error |
-    | 3         | sendto,cc,sendfrom,subject,message | jenkins@controltechnologysolutions.com,jdamerow@controltechnologysolutions.com,jenkins@controltechnologysolutions.com,Jenkins sent you an email,And this is the message | success |
+    | 3         | sendto,cc,sendfrom,subject,message | ctsjenkins@controltechnologysolutions.com,jdamerow@controltechnologysolutions.com,ctsjenkins@controltechnologysolutions.com,Cucumber an Jenkins sent you an email,Sent through Cucumber tests on <date> run on <swinstance>. | success |
   #  | 6         | description              | success |
   #  | 15        | longdescription_.ldtext           | error   |
     

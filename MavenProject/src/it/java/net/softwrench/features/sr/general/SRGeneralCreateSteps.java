@@ -12,6 +12,7 @@ import net.softwrench.features.exceptions.ElementNotShownException;
 import net.softwrench.features.exceptions.NoSuchElementException;
 import net.softwrench.features.helpers.AngularHelper;
 import net.softwrench.features.helpers.DetailsHelper;
+import net.softwrench.features.helpers.MessageDetector;
 import net.softwrench.features.helpers.Reporter;
 import net.softwrench.features.sr.contexts.CreationContext;
 import net.softwrench.jira.ResultProvider;
@@ -21,6 +22,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 
 import com.google.common.collect.Lists;
 import com.paulhammant.ngwebdriver.AngularModelAccessor;
@@ -48,6 +50,12 @@ public class SRGeneralCreateSteps {
 	
 	@Autowired
 	private CreationContext creationContext;
+	
+	@Autowired
+	private Environment env;	
+	
+	@Autowired
+	private MessageDetector msgDetector;
 	
 	private ByAngular byAngular;
 	private Scenario scenario;
@@ -155,21 +163,42 @@ public class SRGeneralCreateSteps {
 				WebElement inputElement = null;
 				if (!element.findElements(By.tagName("input")).isEmpty())
 					inputElement = element.findElement(By.tagName("input"));
-				else if (!element.findElements(By.tagName("textarea")).isEmpty())
-					inputElement = element.findElement(By.tagName("textarea"));
+				// for richtext editor, there is a hidden input field (sometimes?), but it's hidden
+				if (inputElement != null && !inputElement.isDisplayed() && !element.findElements(By.xpath(".//div[@contenteditable='true']")).isEmpty())
+					inputElement = element.findElement(By.xpath(".//div[@contenteditable='true']"));
 				
-				if (inputElement == null)
+				if (inputElement == null) {
+					ResultProvider.INSTANCE.addTestInfo(scenario, "Input element couldn't be found. Expected " + attribute + ".", null, Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
+					reporter.takeScreenshot();
 					throw new NoSuchElementException("Could not find input element for attribute: " + attribute + ".");
-				inputElement.sendKeys(fieldValues.get(fieldIdx));
+				}
+				
+				if (!inputElement.isDisplayed()) {
+					ResultProvider.INSTANCE.addTestInfo(scenario, "The input field " + attribute + " is not visible.", null, Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
+					reporter.takeScreenshot();
+				}
+				
+				inputElement.click();
+				
+				String inputValue = fieldValues.get(fieldIdx).replace("<date>", new Date().toString());
+				inputValue = inputValue.replace("<swinstance>", env.getProperty("test.instance"));
+				inputElement.sendKeys(inputValue);
+				
 				fieldCounter++;
 			}
+		}
+		
+		if (fieldNames.size() != fieldCounter) {
+			ResultProvider.INSTANCE.addTestInfo(scenario, "Could not fill all specified fields. Expected " + fieldNames.size() + " fields but found " + fieldCounter + ".", null, Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
 		}
 		assertTrue("Could not fill all specified fields. Expected " + fieldNames.size() + " fields but found " + fieldCounter + ".", fieldNames.size() == fieldCounter);
 		
 		WebElement submitBtn = detailsHelper.findButton(creationContext.getNewItemComposition(), "save");
-		if (submitBtn == null || !submitBtn.isDisplayed())
-			throw new ElementNotShownException("Submit button is not displayed.");
 		
+		if (submitBtn == null || !submitBtn.isDisplayed()) {
+			ResultProvider.INSTANCE.addTestInfo(scenario, "Submit button is not displayed.", "I filled in all fields, and tried to submit.", Arrays.asList(driver.getScreenshotAs(OutputType.BYTES)));
+			throw new ElementNotShownException("Submit button is not displayed.");
+		}
 		submitBtn.findElement(By.tagName("i")).click();
 	}
 }
