@@ -9,7 +9,7 @@ Feature: I can create a new worklog given all required fields are filled
   Scenario Outline: Create new worklog for SR
     Given I am on the service request grid
     And I click on the <rownumber> record that is not closed in the grid
-    And I click on the worklog tab
+    And I click on the 'worklog' tab
     When I click on the SR worklog button
     And I fill in the '<fields>' with labels '<field_labels>' and submit
     Then I should see a '<success_error>' message

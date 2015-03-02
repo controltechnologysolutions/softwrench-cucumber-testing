@@ -6,7 +6,7 @@ Feature: Upload an attachment to SR
   Scenario Outline: Upload attachment to SR
     Given I am on the service request grid
     And I click on the <rownumber> record that is not closed in the grid
-    And I click on the attachment tab
+    And I click on the 'attachment' tab
     When I click on the add attachment button
     And I add an attachment '<attachment>'
     And I fill in the '<fields>' with labels '<field_labels>' and submit

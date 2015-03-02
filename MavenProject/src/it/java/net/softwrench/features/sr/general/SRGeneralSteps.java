@@ -3,9 +3,18 @@ package net.softwrench.features.sr.general;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Properties;
+
+import javax.annotation.Resource;
 
 import net.softwrench.NavigationHelper;
+import net.softwrench.features.exceptions.NoSuchElementException;
 import net.softwrench.features.exceptions.UnexpectedErrorMessageException;
+import net.softwrench.features.helpers.DetailsHelper;
+import net.softwrench.features.helpers.ErrorMessage;
 import net.softwrench.features.helpers.GridHelper;
 import net.softwrench.features.helpers.MessageDetector;
 import net.softwrench.features.helpers.Reporter;
@@ -39,25 +48,35 @@ public class SRGeneralSteps {
 	private NavigationHelper navHelper;
 	
 	@Autowired
-
 	private MessageDetector msgDetector;
+	
+	@Autowired
 	private GridHelper gridHelper;
 	
 	@Autowired
 	private SRDetailStepContext context;
 	
 	@Autowired
+	private DetailsHelper detailsHelper;
+	
+	@Resource(name="tabsProperties")
+	private Properties tabsProperties;
+	
+	@Autowired
 	private Reporter reporter;
 	
 	private static final Logger logger = Logger.getLogger(SRGeneralSteps.class);
-	
+	private Map<String, String> tabNames;
 	private Scenario scenario;
 	
 	@Before
 	public void init(Scenario scenario) {
 		this.scenario = scenario;
+		tabNames = new HashMap<String, String>();
+		for (Entry<Object, Object> entry : tabsProperties.entrySet()) {
+			tabNames.put(entry.getKey().toString(), entry.getValue().toString());
+		}
 	}
-	
 	
 	@Given("^I am on the service request grid$")
 	public void i_am_on_the_service_request_grid() throws UnexpectedErrorMessageException {	
@@ -113,4 +132,13 @@ public class SRGeneralSteps {
 		assertTrue("There should be an error message, but there is not. Classes are " + classes, !classes.contains("ng-hide"));
 	}
 	
+	@Given("^I click on the '(\\w+?)' tab$")
+	public void i_click_on_the_worklog_tab(String tab) throws NoSuchElementException, UnexpectedErrorMessageException {
+		ErrorMessage msg = msgDetector.detectErrorMessage();
+		detailsHelper.clickOnTab(tabNames.get(tab));
+		ErrorMessage msg2 = msgDetector.detectErrorMessage();
+		
+		if ((msg == null && msg2 != null) || (msg2 != null && !msg.getTitle().equals(msg2.getTitle())))
+			msgDetector.checkForErrorMessage("SR record", "I clicked on the " + tab + " tab.", scenario);
+	}
 }

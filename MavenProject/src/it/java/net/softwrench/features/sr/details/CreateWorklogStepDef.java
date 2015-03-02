@@ -108,16 +108,6 @@ public class CreateWorklogStepDef {
 		WaitForAngularRequestsToFinish.waitForAngularRequestsToFinish(driver);
 	}
 
-	@Given("^I click on the worklog tab$")
-	public void i_click_on_the_worklog_tab() throws NoSuchElementException, UnexpectedErrorMessageException {
-		ErrorMessage msg = msgDetector.detectErrorMessage();
-		detailsHelper.clickOnTab("worklog_");
-		ErrorMessage msg2 = msgDetector.detectErrorMessage();
-		
-		if ((msg == null && msg2 != null) || (msg2 != null && !msg.getTitle().equals(msg2.getTitle())))
-			msgDetector.checkForErrorMessage("SR record", "I clicked on the worklog tab.", scenario);
-	}
-
 	@When("^I click on the SR worklog button$")
 	public void i_click_on_the_SR_worklog_button() throws ElementNotShownException {
 		try {
