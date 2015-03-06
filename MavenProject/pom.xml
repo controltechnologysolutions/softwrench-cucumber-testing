@@ -14,6 +14,11 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-junit</artifactId>
 			<version>1.2.0</version>
@@ -25,18 +30,14 @@
 			<version>2.44.0</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- <dependency>
-			<groupId>org.picocontainer</groupId>
-			<artifactId>picocontainer</artifactId>
-			<version>2.14.3</version>
-			<scope>test</scope>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.picocontainer</groupId> <artifactId>picocontainer</artifactId> 
+			<version>2.14.3</version> <scope>test</scope> </dependency> -->
 		<dependency>
-              <groupId>info.cukes</groupId>
-              <artifactId>cucumber-spring</artifactId>
-              <version>1.2.0</version>
-              <scope>test</scope>
-        </dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-spring</artifactId>
+			<version>1.2.0</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.mortbay.jetty</groupId>
 			<artifactId>jsp-2.1</artifactId>
@@ -74,7 +75,81 @@
 			<version>4.1.3.RELEASE</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.paulhammant</groupId>
+			<artifactId>ngwebdriver</artifactId>
+			<version>0.9.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.json</artifactId>
+			<version>1.0.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.4</version>
+		</dependency>
+
+		<!--<dependency>
+			<groupId>com.atlassian.jira</groupId>
+			<artifactId>jira-rest-java-client-api</artifactId>
+			<version>2.0.0-m25</version>
+		</dependency>
+
+		 <dependency>
+			<groupId>com.atlassian.jira</groupId>
+			<artifactId>jira-api</artifactId>
+			<version>6.0</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.atlassian.jira</groupId>
+			<artifactId>jira-rest-java-client-core</artifactId>
+			<version>2.0.0-m31</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+		</dependency>-->
+		<dependency>
+			<groupId>org.codehaus.groovy.maven.runtime</groupId>
+			<artifactId>gmaven-runtime</artifactId>
+			<version>1.0</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-util</artifactId>
+			<version>9.3.0.M1</version>
+		</dependency>
 	</dependencies>
+
+	<!-- <repositories>
+		<repository>
+			<id>atlassian-public</id>
+			<url>https://maven.atlassian.com/repository/public</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+		</repository>
+		<repository>
+			<id>java.net</id>
+			<name>The Java.net Maven repository</name>
+			<url>http://download.java.net/maven/2</url>
+		</repository>
+	</repositories> -->
 
 	<build>
 		<finalName>cuke-jvm-example</finalName>
@@ -83,8 +158,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -162,6 +237,18 @@
 							<systemPropertyVariables>
 								<cucumber.options>${cucumber.options}</cucumber.options>
 								<test.instance>${test.instance}</test.instance>
+								<grid.instance>${grid.instance}</grid.instance>
+								<test.user.username>${test.user.username}</test.user.username>
+								<test.user.password>${test.user.password}</test.user.password>
+								<test.browser>${test.browser}</test.browser>
+								<jira.user>${jira.user}</jira.user>
+								<jira.password>${jira.password}</jira.password>
+								<jira.url>${jira.url}</jira.url>
+								<jira.project>${jira.project}</jira.project>
+								<jira.issueType>${jira.issueType}</jira.issueType>
+								<jira.featureIdField>${jira.featureIdField}</jira.featureIdField>
+								<jira.featureIdFieldLong>${jira.featureIdFieldLong}</jira.featureIdFieldLong>
+								<jira.createIssues>${jira.createIssues}</jira.createIssues>
 							</systemPropertyVariables>
 						</configuration>
 					</plugin>
@@ -172,10 +259,10 @@
 						<configuration>
 							<stopKey>Youllneverwalkalone</stopKey>
 							<stopPort>9995</stopPort>
-							 <httpConnector>
-         						 <!--host>localhost</host-->
-          						 <port>9999</port>
-     						 </httpConnector>
+							<httpConnector>
+								<!--host>localhost</host -->
+								<port>9999</port>
+							</httpConnector>
 						</configuration>
 						<executions>
 							<execution>
@@ -227,5 +314,18 @@
 	</profiles>
 	<properties>
 		<test.instance>http://10.50.100.125/softwrench</test.instance>
+		<grid.instance>http://10.50.100.148:4444/wd/hub</grid.instance>
+		<test.user.username>swadmin</test.user.username>
+		<test.user.password>sw@dm1n</test.user.password>
+		<test.browser>Firefox</test.browser>
+		<jira.url>https://controltechnologysolutions.atlassian.net/rest/api/2/</jira.url>
+		<jira.user>jenkins</jira.user>
+		<jira.password>CTSJ3nk1nsForJ1ra</jira.password>
+		<jira.project>CTR</jira.project>
+		<jira.issueType>Bug</jira.issueType>
+		<jira.featureIdField>cf[11100]</jira.featureIdField>
+		<jira.featureIdFieldLong>customfield_11100</jira.featureIdFieldLong>
+		<!-- create Jira tickets for failed scenarios yes/no -->
+		<jira.createIssues>no</jira.createIssues>
 	</properties>
 </project>

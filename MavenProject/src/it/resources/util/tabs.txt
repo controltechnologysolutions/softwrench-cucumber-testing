@@ -1,0 +1,44 @@
+SR Details
+----------
+tab id worklog_
+tab id commlog_
+tab id attachment_
+tab id relatedrecord_
+tab id worklog_
+tab id commlog_
+tab id attachment_
+tab id relatedrecord_
+
+SR Work logs
+---------
+Buttons:
+command save
+command print
+command cancel
+command expandall
+command collapseall
+command refresh
+command additem
+command save
+command print
+command cancel
+
+Work log attributes:
+-------------------
+Attribute: description
+Attribute: longdescription_.ldtext
+Attribute: worklogid
+
+
+SR communication:
+-----------------
+commlogid
+createdate
+orgobject
+sendto
+cc
+sendfrom
+subject
+message
+attachment
+commloguid

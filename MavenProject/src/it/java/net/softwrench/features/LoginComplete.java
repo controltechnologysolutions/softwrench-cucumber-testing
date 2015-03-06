@@ -4,12 +4,15 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
-import net.softwrench.SoftWrenchRemoteDriver;
 import net.softwrench.util.Configuration;
 import net.softwrench.util.Constants;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 
@@ -22,22 +25,27 @@ import cucumber.api.java.en.When;
 public class LoginComplete {
 	
 	@Autowired
-	private SoftWrenchRemoteDriver driver;
+	private RemoteWebDriver driver;
 	
 	@Autowired
 	private Environment env;	
+	
+	private static final Logger logger = Logger.getLogger(LoginComplete.class);
 	
 	private String testEnvironment;
 	
 	@Before
 	public void beforeScenario() {
 		testEnvironment = env.getProperty("test.instance");
-		System.out.println("Loggin in to " + testEnvironment);
+		logger.debug("Go to test environment: " + testEnvironment);
 		driver.get(testEnvironment);
 	}
 
 	@Given("^I filled '(\\w+)' and '(\\S+)'$")
 	public void i_filled_username_and_password(String username, String password) throws Throwable {
+		WebDriverWait wait = new WebDriverWait(driver, 10); // wait for a maximum of 5 seconds
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.name("userName")));
+		
 		WebElement element = driver.findElement(By.name("userName"));
 		element.sendKeys(username);
 		WebElement element2 = driver.findElement(By.name("password"));
@@ -65,6 +73,7 @@ public class LoginComplete {
 	
 	@After
 	public void afterScenario() {
+		logger.debug("Logging out.");
 		driver.get(testEnvironment + Constants.LOGOUT_URL);
 		
 	}

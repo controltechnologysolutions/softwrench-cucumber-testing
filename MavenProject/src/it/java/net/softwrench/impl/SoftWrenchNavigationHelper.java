@@ -2,9 +2,12 @@ package net.softwrench.impl;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import net.softwrench.NavigationHelper;
 import net.softwrench.util.Constants;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,21 +16,33 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+<<<<<<< HEAD
 import org.springframework.context.annotation.ScopedProxyMode;
+=======
+>>>>>>> master
 import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-import cucumber.api.java.Before;
-
+<<<<<<< HEAD
 @Service
 @Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
+=======
+@Component
+@Scope("cucumber-glue")
+>>>>>>> master
 public class SoftWrenchNavigationHelper implements NavigationHelper {
 	
 	@Autowired
 	private Environment env;	
 	
-	private String testEnvironment;
+	private static final Logger logger = Logger.getLogger(SoftWrenchNavigationHelper.class);
 	
+	
+	private String testEnvironment;
+	private String username;
+	private String password;
+	
+<<<<<<< HEAD
 //	@Before
 //	public void beforeScenario() {
 //		testEnvironment = env.getProperty("test.instance");
@@ -37,15 +52,32 @@ public class SoftWrenchNavigationHelper implements NavigationHelper {
 	public void makeSureImLoggedIn(String username, String password, WebDriver driver) {
 		testEnvironment = env.getProperty("test.instance");
 		System.out.println("Loggin in to " + testEnvironment);
+=======
+	 
+	@PostConstruct
+	public void beforeScenario() {
+		testEnvironment = env.getProperty("test.instance");
+		username = env.getProperty("test.user.username");
+		password = env.getProperty("test.user.password");
+	}
+	
+	@Override
+	public void makeSureImLoggedIn(String user, String pw, WebDriver driver) {
+		logger.debug("Logging in to " + testEnvironment + " as " + user);
+>>>>>>> master
 		driver.get(testEnvironment);
+		
+		WebDriverWait wait = new WebDriverWait(driver, 10); 
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("userName")));
+		
 		List<WebElement> logout = driver.findElements(By.className(Constants.LOGOUT_ICON));
 		if (logout.size() > 0)
 			return;
 		
 		WebElement element = driver.findElement(By.name("userName"));
-		element.sendKeys(username);
+		element.sendKeys(user);
 		WebElement element2 = driver.findElement(By.name("password"));
-		element2.sendKeys(password);
+		element2.sendKeys(pw);
 
 		WebElement form = driver.findElement(By.tagName("form"));
 		form.submit();
@@ -53,7 +85,12 @@ public class SoftWrenchNavigationHelper implements NavigationHelper {
 	}
 	
 	@Override
-	public void goToSRGrid(WebDriver driver) {
+	public void makeSureImLoggedIn(RemoteWebDriver driver) {
+		makeSureImLoggedIn(username, password, driver);	
+	}
+	
+	@Override
+	public void goToSRGrid(RemoteWebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, 10); 
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.className(Constants.SR_ICON)));
 		

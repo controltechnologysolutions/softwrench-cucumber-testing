@@ -8,4 +8,8 @@ public interface Constants {
 	
 	public static final String SR_ICON = "fa-ticket";
 	public static final String LOGOUT_ICON = "fa-sign-out";
+	
+	public static final String YES = "yes";
+	public static final String NO = "no";
+	
 }

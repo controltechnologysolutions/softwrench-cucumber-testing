@@ -1,3 +1,4 @@
+@fast @general
 Feature: Login sucess
   As a user,
   I want to be able to login to softWrench..

@@ -9,4 +9,15 @@
   <context:component-scan base-package="net.softwrench"/>
   <context:annotation-config/>
   
+  <context:property-placeholder location="classpath:content.properties" />
+  
+  <bean id="tabsProperties"
+      class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+	  <property name="locations">
+	    <list>
+	      <value>classpath*:tabs.properties</value>
+	    </list>
+	  </property>
+  </bean>
+  
 </beans>

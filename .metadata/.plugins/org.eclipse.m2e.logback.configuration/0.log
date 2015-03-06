@@ -1,0 +1,585 @@
+2015-01-08 11:06:10,711 [Worker-2] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: net.softwrench:MavenProject:0.0.1-SNAPSHOT @ /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/pom.xml.
+2015-01-08 11:06:13,790 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 11:06:14,086 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:06:14,091 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:06:14,093 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:06:14,094 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:06:14,095 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 11:06:15,857 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 11:06:15,859 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:06:15,897 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:06:15,899 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:06:15,919 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:06:15,920 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 11:09:47,650 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 11:09:47,654 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:09:47,655 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:09:47,656 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:09:47,657 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:09:47,657 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:10:07,641 [Worker-8] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 11:10:07,642 [Worker-8] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B clean
+2015-01-08 11:10:10,558 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 11:10:10,568 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:10:10,569 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:10:10,570 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:10:10,571 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:10:10,571 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 11:11:18,956 [Worker-7] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 11:11:18,956 [Worker-7] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @basics" -Pintegration-tests  -B clean verfiy 
+2015-01-08 11:11:47,571 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 11:11:47,571 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @basics" -Pintegration-tests  -B clean verifiy 
+2015-01-08 11:12:01,732 [Worker-6] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 11:12:01,733 [Worker-6] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @basics" -Pintegration-tests  -B clean verify 
+2015-01-08 11:13:58,160 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 11:13:58,164 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:13:58,164 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:13:58,166 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:13:58,167 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:13:58,167 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 11:14:14,709 [Worker-4] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 11:14:14,709 [Worker-4] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @basics" -Pintegration-tests  -B clean verify 
+2015-01-08 11:15:17,105 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 11:15:17,107 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:15:17,108 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:15:17,109 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:15:17,109 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:15:17,109 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:15:21,543 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 11:15:21,543 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @basics" -Pintegration-tests  -B clean verify 
+2015-01-08 11:16:38,094 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 11:16:38,099 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:16:38,104 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:16:38,107 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:16:38,108 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:16:38,109 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 11:16:44,590 [Worker-8] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 11:16:44,590 [Worker-8] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @basics" -Pintegration-tests  -B clean verify 
+2015-01-08 11:18:24,801 [Worker-9] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: net.softwrench:MavenProject:0.0.1-SNAPSHOT @ /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/pom.xml.
+2015-01-08 11:18:25,097 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 11:18:25,100 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:18:25,101 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:18:25,102 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:18:25,103 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:18:25,103 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 11:18:27,224 [Worker-2] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 11:18:27,225 [Worker-2] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @basics" -Pintegration-tests  -B clean verify 
+2015-01-08 11:18:51,548 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 11:18:51,551 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:18:51,552 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:18:51,553 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:18:51,553 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:18:51,554 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 11:19:08,039 [Worker-4] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: net.softwrench:MavenProject:0.0.1-SNAPSHOT @ /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/pom.xml.
+2015-01-08 11:19:08,298 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 11:19:08,300 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:19:08,301 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:19:08,303 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:19:08,303 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:19:08,304 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 11:19:11,061 [Worker-12] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 11:19:11,061 [Worker-12] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @basics" -Pintegration-tests  -B clean verify 
+2015-01-08 11:21:07,908 [Worker-2] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: net.softwrench:MavenProject:0.0.1-SNAPSHOT @ /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/pom.xml.
+2015-01-08 11:21:08,180 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 11:21:08,182 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:21:08,182 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:21:08,183 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:21:08,184 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:21:08,184 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 11:21:31,092 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 11:21:31,094 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:21:31,094 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:21:31,096 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:21:31,097 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:21:31,097 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 11:21:34,943 [Worker-12] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 11:21:34,943 [Worker-12] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @basics" -Pintegration-tests  -B clean verify 
+2015-01-08 11:22:52,068 [Worker-12] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: net.softwrench:MavenProject:0.0.1-SNAPSHOT @ /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/pom.xml.
+2015-01-08 11:22:52,350 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 11:22:52,351 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:22:52,352 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:22:52,353 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:22:52,353 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:22:52,354 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 11:22:54,005 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 11:22:54,005 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @basics" -Pintegration-tests  -B clean verify 
+2015-01-08 11:24:48,694 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 11:24:48,697 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:24:48,697 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:24:48,698 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:24:48,699 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:24:48,699 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 11:24:51,450 [Worker-4] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 11:24:51,450 [Worker-4] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @basics" -Pintegration-tests  -B clean verify 
+2015-01-08 11:26:01,656 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 11:26:01,659 [Worker-13] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:26:01,659 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:26:01,661 [Worker-13] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:26:01,662 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:26:01,662 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 11:26:19,475 [Worker-12] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 11:26:19,475 [Worker-12] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @basics" -Pintegration-tests  -B clean verify 
+2015-01-08 11:33:17,150 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 11:33:17,158 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:33:17,165 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:33:17,167 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 11:33:17,167 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 11:33:17,168 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2015-01-08 11:38:13,721 [Worker-6] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 11:38:13,721 [Worker-6] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 12:40:49,663 [Worker-16] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 12:40:49,698 [Worker-16] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 12:40:52,372 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 12:40:52,384 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 12:40:52,440 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 12:40:52,442 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 12:40:52,497 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 12:40:52,505 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 12:44:30,348 [Worker-17] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 12:44:30,373 [Worker-17] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 12:44:30,781 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 12:44:30,785 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 12:44:30,815 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 12:44:30,817 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 12:44:30,843 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 12:44:30,844 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 12:44:31,870 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 12:44:31,874 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 12:44:31,875 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 12:44:31,877 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 12:44:31,877 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 12:44:31,878 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 12:49:15,326 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 12:49:15,339 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 12:49:15,974 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 12:49:15,978 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 12:49:15,993 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 12:49:15,994 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 12:49:15,999 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 12:49:16,000 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 12:49:17,014 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 12:49:17,017 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 12:49:17,018 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 12:49:17,020 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 12:49:17,021 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 12:49:17,022 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 12:53:42,647 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 12:53:42,660 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 12:53:42,759 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 12:53:42,763 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 12:53:42,781 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 12:53:42,782 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 12:53:42,783 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 12:53:42,784 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 12:53:43,848 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 12:53:43,851 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 12:53:43,851 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 12:53:43,853 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 12:53:43,854 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 12:53:43,858 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 12:55:16,798 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 12:55:17,142 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 12:56:40,663 [Worker-17] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 12:56:40,701 [Worker-17] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 13:02:05,203 [Worker-18] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 13:02:05,213 [Worker-18] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 13:02:05,492 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 13:02:05,495 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:02:05,522 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:02:05,524 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:02:05,541 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:02:05,542 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 13:02:06,556 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 13:02:06,559 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:02:06,560 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:02:06,561 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:02:06,562 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:02:06,563 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 13:03:44,406 [Worker-16] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 13:03:44,427 [Worker-16] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 13:03:44,442 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 13:03:44,446 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:03:44,470 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:03:44,474 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:03:44,478 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:03:44,478 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 13:03:45,546 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 13:03:45,549 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:03:45,550 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:03:45,551 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:03:45,552 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:03:45,553 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 13:05:10,720 [Worker-15] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 13:05:10,764 [Worker-15] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 13:05:10,906 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 13:05:10,908 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:05:10,917 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:05:10,919 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:05:10,919 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:05:10,920 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 13:05:11,932 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 13:05:11,935 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:05:11,936 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:05:11,938 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:05:11,939 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:05:11,940 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 13:16:00,786 [Worker-8] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 13:16:00,800 [Worker-8] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 13:16:00,908 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 13:16:00,912 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:16:00,920 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:16:00,921 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:16:00,922 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:16:00,923 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 13:16:01,980 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 13:16:01,983 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:16:01,984 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:16:01,986 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:16:01,987 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:16:01,988 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 13:18:57,679 [Worker-17] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 13:18:57,684 [Worker-17] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 13:18:58,559 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 13:18:58,562 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:18:58,594 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:18:58,596 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:18:58,597 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:18:58,597 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 13:18:59,609 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 13:18:59,611 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:18:59,611 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:18:59,612 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:18:59,619 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:18:59,620 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 13:22:14,702 [Worker-16] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 13:22:14,703 [Worker-16] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 13:22:14,837 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 13:22:14,843 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:22:14,844 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:22:14,845 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:22:14,846 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:22:14,847 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 13:22:15,862 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 13:22:15,865 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:22:15,866 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:22:15,867 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:22:15,868 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:22:15,869 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 13:25:39,767 [Worker-15] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 13:25:39,767 [Worker-15] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 13:25:39,914 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 13:25:39,920 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:25:39,920 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:25:39,921 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:25:39,922 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:25:39,922 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 13:25:40,934 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 13:25:40,936 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:25:40,937 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:25:40,938 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:25:40,939 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:25:40,939 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 13:26:51,336 [Worker-8] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 13:26:51,336 [Worker-8] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 13:44:21,015 [Worker-17] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 13:44:21,015 [Worker-17] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 13:44:21,204 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 13:44:21,208 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:44:21,209 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:44:21,210 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:44:21,303 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:44:21,304 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 13:44:22,367 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 13:44:22,369 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:44:22,371 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:44:22,373 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 13:44:22,373 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 13:44:22,374 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:06:18,690 [Worker-17] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 14:06:18,690 [Worker-17] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 14:06:18,999 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:06:19,004 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:06:19,005 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:06:19,007 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:06:19,008 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:06:19,008 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:06:20,023 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:06:20,026 [Worker-21] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:06:20,026 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:06:20,027 [Worker-21] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:06:20,028 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:06:20,028 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:12:17,779 [Worker-6] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 14:12:17,779 [Worker-6] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 14:12:17,857 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:12:17,860 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:12:17,861 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:12:17,863 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:12:17,875 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:12:17,876 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:12:18,890 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:12:18,892 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:12:18,893 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:12:18,894 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:12:18,894 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:12:18,895 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:24:09,513 [Worker-6] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 14:24:09,513 [Worker-6] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 14:24:09,970 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:24:09,974 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:24:09,975 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:24:09,977 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:24:09,978 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:24:09,978 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:24:10,992 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:24:10,995 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:24:10,996 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:24:10,997 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:24:10,998 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:24:10,999 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:31:42,663 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 14:31:42,664 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 14:31:42,853 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:31:42,857 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:31:42,858 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:31:42,864 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:31:42,963 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:31:42,963 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:31:44,024 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:31:44,026 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:31:44,026 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:31:44,028 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:31:44,029 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:31:44,029 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:34:00,333 [Worker-7] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 14:34:00,334 [Worker-7] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 14:34:00,627 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:34:00,632 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:34:00,632 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:34:00,635 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:34:00,636 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:34:00,637 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:34:01,656 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:34:01,658 [Worker-21] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:34:01,659 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:34:01,660 [Worker-21] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:34:01,661 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:34:01,662 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:38:04,369 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 14:38:04,369 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 14:38:04,564 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:38:04,570 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:38:04,571 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:38:04,573 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:38:04,573 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:38:04,574 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:38:05,592 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:38:05,595 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:38:05,596 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:38:05,597 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:38:05,598 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:38:05,599 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:41:16,218 [Worker-16] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 14:41:16,218 [Worker-16] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 14:41:16,405 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:41:16,410 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:41:16,411 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:41:16,413 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:41:16,414 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:41:16,416 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:41:17,441 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:41:17,443 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:41:17,443 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:41:17,445 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:41:17,445 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:41:17,446 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:43:02,962 [Worker-21] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 14:43:02,962 [Worker-21] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 14:43:03,149 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:43:03,152 [Worker-23] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:43:03,152 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:43:03,154 [Worker-23] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:43:03,251 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:43:03,251 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:43:04,263 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:43:04,265 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:43:04,266 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:43:04,267 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:43:04,268 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:43:04,268 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:57:52,594 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:57:52,597 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:57:52,597 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:57:52,598 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:57:52,601 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:57:52,602 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:59:02,441 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:59:02,443 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:59:02,443 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:59:02,444 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:59:02,445 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:59:02,445 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:59:09,947 [Worker-6] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 14:59:09,947 [Worker-6] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 14:59:58,806 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:59:58,821 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:59:58,840 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:59:58,841 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:59:58,845 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:59:58,846 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 14:59:59,861 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 14:59:59,863 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:59:59,865 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:59:59,867 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 14:59:59,868 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 14:59:59,868 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 15:00:00,633 [Worker-21] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 15:00:00,633 [Worker-21] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 15:02:30,514 [Worker-7] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 15:02:30,514 [Worker-7] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @basics" -Pintegration-tests  -B clean verify 
+2015-01-08 15:03:13,677 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 15:03:13,681 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 15:03:13,681 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 15:03:13,682 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 15:03:13,683 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 15:03:13,684 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 15:03:14,694 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 15:03:14,695 [Worker-23] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 15:03:14,696 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 15:03:14,697 [Worker-23] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 15:03:14,697 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 15:03:14,698 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 15:03:27,076 [Worker-8] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 15:03:27,076 [Worker-8] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @basics" -Pintegration-tests  -B clean verify 
+2015-01-08 15:04:11,731 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 15:04:11,731 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 15:06:45,778 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 15:06:45,781 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 15:06:45,782 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 15:06:45,783 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 15:06:45,784 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 15:06:45,784 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 15:06:46,796 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 15:06:46,798 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 15:06:46,798 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 15:06:46,799 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 15:06:46,800 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 15:06:46,800 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 15:06:47,641 [Worker-6] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 15:06:47,641 [Worker-6] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 15:08:30,491 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 15:08:30,501 [Worker-24] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 15:08:30,508 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 15:08:30,510 [Worker-24] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 15:08:30,510 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 15:08:30,511 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 15:08:31,520 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 15:08:31,522 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 15:08:31,522 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 15:08:31,523 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 15:08:31,524 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 15:08:31,525 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 15:08:32,069 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 15:08:32,069 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 15:09:49,304 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 15:09:49,317 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 15:09:49,323 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 15:09:49,325 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 15:09:49,325 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 15:09:49,326 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 15:09:50,464 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 15:09:50,465 [Worker-24] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 15:09:50,466 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 15:09:50,467 [Worker-24] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 15:09:50,468 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 15:09:50,468 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 16:12:02,423 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 16:12:02,447 [Worker-0] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 16:12:04,760 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 16:12:04,763 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 16:12:04,778 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 16:12:04,780 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 16:12:04,781 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 16:12:04,782 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 16:18:33,690 [Worker-7] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-08 16:18:33,702 [Worker-7] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-08 16:18:35,010 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 16:18:35,013 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 16:18:35,034 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 16:18:35,036 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 16:18:35,037 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 16:18:35,037 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-08 16:18:36,051 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-08 16:18:36,054 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 16:18:36,055 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 16:18:36,056 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-08 16:18:36,067 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-08 16:18:36,068 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-09 10:57:45,694 [Worker-36] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-09 10:57:45,707 [Worker-36] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-09 10:57:47,884 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-09 10:57:47,888 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 10:57:47,917 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 10:57:47,919 [Worker-43] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 10:57:47,927 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 10:57:47,929 [Worker-43] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-09 10:57:48,973 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-09 10:57:48,976 [Worker-38] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 10:57:48,977 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 10:57:48,978 [Worker-38] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 10:57:48,978 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 10:57:48,978 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-09 11:01:08,714 [Worker-35] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-09 11:01:08,714 [Worker-35] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-09 11:01:09,233 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-09 11:01:09,241 [Worker-44] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 11:01:09,242 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 11:01:09,243 [Worker-44] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 11:01:09,244 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 11:01:09,245 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-09 11:01:10,263 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-09 11:01:10,266 [Worker-42] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 11:01:10,311 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 11:01:10,313 [Worker-42] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 11:01:10,313 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 11:01:10,314 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-09 11:02:14,745 [Worker-38] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-09 11:02:14,745 [Worker-38] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-09 11:02:14,924 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-09 11:02:14,926 [Worker-36] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 11:02:14,927 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 11:02:14,928 [Worker-36] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 11:02:14,929 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 11:02:14,929 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-09 11:02:16,085 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-09 11:02:16,089 [Worker-38] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 11:02:16,090 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 11:02:16,092 [Worker-38] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 11:02:16,093 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 11:02:16,093 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-09 11:04:05,110 [Worker-35] INFO  o.e.m.i.launch.MavenLaunchDelegate - /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject
+2015-01-09 11:04:05,110 [Worker-35] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -Dcucumber.options="--tags @nick" -Pintegration-tests  -B clean verify 
+2015-01-09 11:04:05,298 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-09 11:04:05,301 [Worker-42] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 11:04:05,302 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 11:04:05,305 [Worker-42] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 11:04:05,306 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 11:04:05,307 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-09 11:04:06,464 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-09 11:04:06,466 [Worker-40] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 11:04:06,466 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 11:04:06,468 [Worker-40] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 11:04:06,468 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 11:04:06,469 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-09 11:10:39,434 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-09 11:10:39,438 [Worker-42] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 11:10:39,443 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 11:10:39,445 [Worker-42] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 11:10:39,445 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 11:10:39,446 [Worker-42] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 7 resources
+2015-01-09 11:12:31,414 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - Test Source directory: /Users/nhenson/Desktop/Github/softwrench-cucumber-testing/MavenProject/src/it/java added.
+2015-01-09 11:12:31,416 [Worker-44] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 11:12:31,416 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 11:12:31,417 [Worker-44] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MacRoman actually) to copy filtered resources, i.e. build is platform dependent!
+2015-01-09 11:12:31,417 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-01-09 11:12:31,417 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource

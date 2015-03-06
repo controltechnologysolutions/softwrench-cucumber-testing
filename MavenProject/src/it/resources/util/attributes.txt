@@ -1,0 +1,24 @@
+model ticketid
+model siteid
+model ticketid
+model ticketuid
+model class
+model actlabcost
+model actlabhrs
+model siteid
+model orgid
+model createby
+model status
+model classstructureid
+model changeby
+model owner
+model ownergroup
+model reportedby
+model affectedperson
+model reportdate
+model targetstart
+model targetfinish
+model actualstart
+model actualfinish
+
+
