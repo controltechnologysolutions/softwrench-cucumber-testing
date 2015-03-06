@@ -75,6 +75,7 @@ public class LoginComplete {
 	public void afterScenario() {
 		logger.debug("Logging out.");
 		driver.get(testEnvironment + Constants.LOGOUT_URL);
+		
 	}
 
 }
