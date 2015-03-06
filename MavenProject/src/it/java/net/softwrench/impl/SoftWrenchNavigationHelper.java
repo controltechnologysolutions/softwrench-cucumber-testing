@@ -16,20 +16,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-<<<<<<< HEAD
-import org.springframework.context.annotation.ScopedProxyMode;
-=======
->>>>>>> master
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-<<<<<<< HEAD
-@Service
-@Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
-=======
+
 @Component
 @Scope("cucumber-glue")
->>>>>>> master
+
 public class SoftWrenchNavigationHelper implements NavigationHelper {
 	
 	@Autowired
@@ -42,17 +35,6 @@ public class SoftWrenchNavigationHelper implements NavigationHelper {
 	private String username;
 	private String password;
 	
-<<<<<<< HEAD
-//	@Before
-//	public void beforeScenario() {
-//		testEnvironment = env.getProperty("test.instance");
-//	}
-	
-	@Override
-	public void makeSureImLoggedIn(String username, String password, WebDriver driver) {
-		testEnvironment = env.getProperty("test.instance");
-		System.out.println("Loggin in to " + testEnvironment);
-=======
 	 
 	@PostConstruct
 	public void beforeScenario() {
@@ -64,7 +46,6 @@ public class SoftWrenchNavigationHelper implements NavigationHelper {
 	@Override
 	public void makeSureImLoggedIn(String user, String pw, WebDriver driver) {
 		logger.debug("Logging in to " + testEnvironment + " as " + user);
->>>>>>> master
 		driver.get(testEnvironment);
 		
 		WebDriverWait wait = new WebDriverWait(driver, 10); 
